@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="progress">Progress</label>
+    <progress ></progress> value="70" max="100">70%</progress>
+    <marquee >PROGRESSSSSSSSS</marquee>
+    <input type="range" value="70" max="200" name="value" id="value">
+
+
+
+   
+  <label for="rangeInput">Choose a your Phone number😂:</label>
+  <input type="range" id="rangeInput" min="1000000000" max="9999999999" step="1" value="1000000000" size="300">
+  <span id="rangeValue">1000000000</span>
+
+  <script>
+    const rangeInput = document.getElementById('rangeInput');
+    const rangeValue = document.getElementById('rangeValue');
+
+    // Update the span when the range input changes
+    rangeInput.addEventListener('input', () => {
+      rangeValue.textContent = rangeInput.value;
+    });
+  </script>
+
+
+
+
+</body>
+</html>
