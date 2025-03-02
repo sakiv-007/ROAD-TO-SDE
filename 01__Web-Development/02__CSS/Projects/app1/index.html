@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empower Young Minds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- 9. Exercise - Navigation and Footer -->
+
+      <nav class="nav">
+        <div class="nav__logo">
+          <img src="images/logo.png" alt="Logo" />
+        </div>
+        <div class="nav__links">
+          <a href="#home" class="nav__link">Home</a>
+          <a href="#about" class="nav__link">About Us</a>
+          <a href="#contact" class="nav__link">Contact Us</a>
+          <a href="#blog" class="nav__link">Blog</a>
+        </div>
+      </nav>
+
+      <!-- 1. Selectors & Basic Properties - Hero Section -->
+      <header class="hero">
+        <h1 class="hero__title">EMPOWER YOUNG MINDS</h1>
+        <p class="hero__description">
+          Discover a world of learning possibilities with our
+          <span id="hero__highlight">innovative</span>
+          educational platform.
+        </p>
+      </header>
+
+      <!-- 2. Fonts - Features Section -->
+      <section class="feature">
+        <div class="feature__container">
+          <div class="feature__item">
+            <h2 class="feature__title feature__title--selected">
+              Empower Student Learning
+            </h2>
+
+            <p class="feature__description">
+              Our platform enhances student engagement by providing interactive
+              learning tools. Experience a seamless integration of technology
+              that supports diverse learning styles.
+            </p>
+          </div>
+          <div class="feature__item">
+            <h2 class="feature__title">Streamlined Communication Tools</h2>
+            <p class="feature__description">
+              Stay connected with parents and students through our easy-to-use
+              communication features. Foster collaboration and transparency
+              within your educational community.
+            </p>
+          </div>
+          <div class="feature__item">
+            <h2 class="feature__title">Customizable Learning Experience</h2>
+            <p class="feature__description">
+              Tailor your curriculum to meet the unique needs of your students.
+              Our flexible platform allows educators to create personalized
+              learning paths.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature__image-container">
+          <img
+            class="feature__image"
+            src="images/features.jpg"
+            alt="Feature Image"
+          />
+        </div>
+      </section>
+
+      <!-- 3. Colors - Call to Action Section -->
+      <section class="cta">
+        <h3 class="cta__title">Learn More About Us by Contacting Us</h3>
+        <p class="cta__description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          varius enim in eros elementum tristique. Some random text here and
+          there. More random text. There is more to say about these random
+          things I have to know everything about this here and there.
+        </p>
+        <button class="cta__button cta__button--primary">Learn More</button>
+      </section>
+
+      <!-- 4. Box Model - Video Section -->
+      <section class="video">
+        <h3 class="video__title">Grow Your Child's Future</h3>
+        <p class="video__description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          varius enim in eros elementum tristique.
+        </p>
+        <div class="video__controls">
+          <button class="video__button video__button--primary">
+            <i class="fas fa-book"></i> Learn More
+          </button>
+          <button class="video__button video__button--secondary">
+            <i class="fas fa-play-circle"></i> Watch Video
+          </button>
+        </div>
+        <div class="video__container"></div>
+      </section>
+
+      <!-- 5. Flex - Programs Section -->
+      <section class="programs">
+        <h2>
+          Explore Our State of the Art Facilities and Enriching Learning
+          Experience
+        </h2>
+        <div class="programs__cards">
+          <div class="programs__card">
+            <img
+              class="programs__card-img"
+              src="images/program1.jpg"
+              alt="Learning Activities"
+            />
+            <h3>
+              Engaging Extracurricular Activities for Holistic Student
+              Development
+            </h3>
+            <p>
+              Our school offers modern facilities designed to enhance learning
+              experience.
+            </p>
+            <button class="programs__button">Learn More</button>
+          </div>
+          <div class="programs__card">
+            <img
+              class="programs__card-img"
+              src="images/program2.jpg"
+              alt="Academic Programs"
+            />
+            <h3>
+              Diverse Academic Programs Tailored to Student Interests and Goals
+            </h3>
+            <p>
+              We provide a wide range of academic programs to cater to every
+              student.
+            </p>
+            <button class="programs__button">Learn More</button>
+          </div>
+          <div class="programs__card">
+            <img
+              class="programs__card-img"
+              src="images/program1.jpg"
+              alt="Learning Activities"
+            />
+            <h3>Dedicated Staff Committed to Student Success and Growth</h3>
+            <p>
+              Our experienced educators are passionate about nurturing each
+              student's potential.
+            </p>
+            <button class="programs__button">Learn More</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. HTML Elements & Images - Form Section -->
+      <section class="element">
+        <div class="element__left">
+          <img
+            class="element__image"
+            src="images/formimage.jpg"
+            alt="Form Image"
+          />
+        </div>
+        <div class="element__right">
+          <h2>Sign Up Now!</h2>
+          <p class="element__subtitle">
+            Fill out the form below to sign up for our newsletter and receive
+            updates
+          </p>
+          <form class="element__form">
+            <h3>Your Interests:</h3>
+            <ul class="element__list">
+              <li class="element__list-item">Web Development</li>
+              <li class="element__list-item">UI UX Design</li>
+              <li class="element__list-item">Digital Marketing</li>
+            </ul>
+
+            <div class="element__form-group">
+              <label for="username">Username:</label>
+              <input type="text" id="username" placeholder="Enter username" />
+            </div>
+
+            <div class="element__form-group">
+              <label for="course">Select Course:</label>
+              <select id="course">
+                <option value="">Choose a course...</option>
+                <option value="html">HTML & CSS</option>
+                <option value="js">Javascript</option>
+                <option value="react">React</option>
+              </select>
+            </div>
+
+            <button type="submit" class="element__button">Submit Form</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- 9. Exercise - Navigation and Footer -->
+      <footer class="footer">
+        <div class="footer__content">
+          <div class="footer__logo">
+            <img src="images/logo.png" alt="Logo" />
+            <p>
+              Empowering the next generation of learners with innovative
+              educational solutions.
+            </p>
+            <button class="footer__button">Learn More</button>
+          </div>
+          <div class="footer__links">
+            <div class="footer__column">
+              <h4>Quick Links</h4>
+              <a href="#">About Us</a>
+              <a href="#">Features</a>
+              <a href="#">Programs</a>
+              <a href="#">Blog</a>
+            </div>
+            <div class="footer__column">
+              <h4>Resources</h4>
+              <a href="#">Help Center</a>
+              <a href="#">Terms of Use</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer__column">
+              <h4>Connect with us</h4>
+              <div class="footer__social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p>&copy; 2024 All rights reserved.</p>
+        </div>
+      </footer>
+  
+  </body>
+</html>
