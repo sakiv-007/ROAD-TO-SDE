@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex layout</title>
+    <style>
+        .flex-container {
+            display: flex;
+            gap: 10px;
+            justify-content: space-evenly;
+            /* align-items: center; */
+         
+            /* height: 400px;
+            width: 400px; */
+            background-color: yellow;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex-item {
+           
+            display: flex;
+           
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            justify-content: center;
+            align-items: center;
+           
+        }
+    </style>
+</head>
+<body>
+    <details>
+        <summary>Question</summary>
+        <pre>
+            Create a Responsive Flexbox Layout
+            Task: Create a simple responsive layout using Flexbox where three boxes are aligned horizontally, centered both vertically and horizontally within the container, and wrap to the next line on smaller screens.
+            
+            Instructions:
+            
+            Create a container div with the class name flex-container.
+            
+            Inside the container, create three div elements with the class name flex-item.
+            
+            Apply Flexbox properties to:
+            
+            Center the items horizontally and vertically.
+            
+            Ensure the items are spaced evenly within the container.
+            
+            Allow the items to wrap to the next line when the screen width is reduced.
+            
+            Style each flex-item with a fixed width and height, and give each one a red background color for distinction. Give a yellow color to the parent div for distinction.
+        </pre>
+    </details>
+    <div class="flex-container">
+        <div class="flex-item">Item1</div>
+        <div class="flex-item">Item2</div>
+        <div class="flex-item">Item3</div>
+    </div>
+</body>
+</html>

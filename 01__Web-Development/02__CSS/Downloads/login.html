@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login page</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: url(ai-generated-ai-generative-purple-pink-color-sunset-evening-nature-outdoor-lake-with-mountains-landscape-background-graphic-art-photo.jpg)
+          no-repeat center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 8px;
+        padding: 30px;
+        width: 300px;
+      }
+
+      h2 {
+        color: #655fe4;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      input[type="email"],
+    input[type="password"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: 2px solid rgb(175, 73, 73);
+      background-color: #d8d8d8;
+    }
+
+      button {
+        background-color: #655fe4;
+        color: rgb(255, 255, 255);
+        border-radius: 8px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      button:hover {
+        background-color: #1a10da;
+        transform: scale(1.05);
+      }
+      input:hover {
+        background-color: #e9e9e9;
+      }
+      .remember-me {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      label {
+        color: #ffffff;
+      }
+
+       /* CSS-only welcome page */
+       #welcome {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+      color: #333;
+      width: 300px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Close button */
+    #welcome a {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      text-decoration: none;
+      color: red;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* Show welcome page when targeted */
+    #welcome:target {
+      display: block;
+    }
+
+    #welcome a:hover {
+      color: darkred;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Login</h2>
+      <form action="#welcome">
+        <input type="email" name="" id="" placeholder="Email;" />
+        <input type="password" name="" id="" placeholder="password;" />
+        <div class="remeberMe">
+          <input type="checkbox" />
+          <label for="rememberMe">Remember Me</label>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+
+      
+    </div>
+
+    <!-- Welcome Page -->
+  <div id="welcome">
+    <a href="#">❌</a>
+    <h1>Welcome! You have successfully logged in.</h1>
+  </div>
+  </body>
+</html>
