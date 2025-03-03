@@ -8,26 +8,75 @@
   </head>
   <body>
     <!-- ==================================================
+             PICTURE WITH CONTACT SECTION
+    ======================================================= -->
+    
+    <section class="element">
+        <div class="element__left">
+          <img
+            class="element__image"
+            src="assets/formimage.jpg"
+            alt="Form Image"
+          />
+        </div>
+        <div class="element__right">
+          <h2>Sign Up Now!</h2>
+          <p class="element__subtitle">
+            Fill out the form below to sign up for our newsletter and receive
+            updates
+          </p>
+          <form class="element__form">
+            <h3>Your Interests:</h3>
+            <ul class="element__list">
+              <li class="element__list-item">Web Development</li>
+              <li class="element__list-item">UI UX Design</li>
+              <li class="element__list-item">Digital Marketing</li>
+            </ul>
+
+            <div class="element__form-group">
+              <label for="username">Username:</label>
+              <input type="text" id="username" placeholder="Enter username" />
+            </div>
+
+            <div class="element__form-group">
+              <label for="course">Select Course:</label>
+              <select id="course">
+                <option value="">Choose a course...</option>
+                <option value="html">HTML & CSS</option>
+                <option value="js">Javascript</option>
+                <option value="react">React</option>
+              </select>
+            </div>
+
+            <button type="submit" class="element__button">Submit Form</button>
+          </form>
+        </div>
+      </section>
+    <!-- ==================================================
              LOGIN PAGE SECTION
     ======================================================= -->
+<div class="container">
     <div class="card">
-      <h2>Login</h2>
-      <form action="#welcome">
-        <input type="email" name="" id="" placeholder="Email;" />
-        <input type="password" name="" id="" placeholder="password;" />
-        <div class="remeberMe">
-          <input type="checkbox" />
-          <label for="rememberMe">Remember Me</label>
-          <a class="forgot" href="#">Forgot password</a>
-        </div>
-        <button type="submit">Login</button>
-      </form>
+        <h2>Login</h2>
+        <form action="#welcome">
+          <input type="email" name="" id="" placeholder="Email;" />
+          <input type="password" name="" id="" placeholder="password;" />
+          <div class="remeberMe">
+            <input type="checkbox" />
+            <label for="rememberMe">Remember Me</label>
+            <a class="forgot" href="#">Forgot password</a>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+  
+      <!-- Welcome Page -->
+      <div id="welcome">
+        <a href="#">❌</a>
+        <h1>Welcome! You have successfully logged in.</h1>
+      </div>
     </div>
-
-    <!-- Welcome Page -->
-    <div id="welcome">
-      <a href="#">❌</a>
-      <h1>Welcome! You have successfully logged in.</h1>
-    </div>
+      
   </body>
 </html>
+
