@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quick Recap of Things Learned so far</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ==================================================
+             LOGIN PAGE SECTION
+    ======================================================= -->
+    <div class="card">
+      <h2>Login</h2>
+      <form action="#welcome">
+        <input type="email" name="" id="" placeholder="Email;" />
+        <input type="password" name="" id="" placeholder="password;" />
+        <div class="remeberMe">
+          <input type="checkbox" />
+          <label for="rememberMe">Remember Me</label>
+          <a class="forgot" href="#">Forgot password</a>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!-- Welcome Page -->
+    <div id="welcome">
+      <a href="#">❌</a>
+      <h1>Welcome! You have successfully logged in.</h1>
+    </div>
+  </body>
 </html>
