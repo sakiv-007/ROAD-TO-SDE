@@ -1,0 +1,63 @@
+.masonry {
+    padding: 4rem 8rem;
+    background: #fff;
+  }
+  
+  .masonry-subtitle {
+    margin-bottom: 2rem;
+    color: #666;
+    text-align: center;
+  }
+  
+  .masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    gap: 1rem;
+    max-width: none;
+    margin: 0 auto;
+  }
+  
+  .masonry-item {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+  }
+  
+  .masonry-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .item1 {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+  
+  .item2 {
+    grid-column: 2/4;
+    grid-row: 1/3;
+  }
+  
+  .item3 {
+    grid-column: 4/5;
+    grid-row: 1/2;
+  }
+  
+  .item4 {
+    grid-column: 5/6;
+    grid-row: 1/2;
+  }
+  
+  .item5 {
+    grid-column: 4/6;
+    grid-row: 2/3;
+  }
+  .item6 {
+    grid-column: 1 / span 4;
+    grid-row: span 1;
+  }
+  .item7 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }

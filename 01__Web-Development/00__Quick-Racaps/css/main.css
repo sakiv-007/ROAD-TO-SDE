@@ -7,8 +7,11 @@
 /* for linking the external css files  */
 @import url("sections/login.css");
 @import url("sections/contact.css");
+@import url("sections/gallery.css");
+@import url("sections/grid.css");
 
 *{
     padding: 0;
     margin: 0;
+    /* box-sizing: border-box; */
 }
