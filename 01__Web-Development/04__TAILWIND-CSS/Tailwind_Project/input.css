@@ -15,10 +15,33 @@
     body {
         overflow-x: hidden;
     }
-    h1, h2, h3 {
-      @apply font-display text-gray-800 font-medium;
+    body {
+        @apply font-body;
     }
-  }
+    h1, h2, h3 {
+        @apply font-display text-gray-800 font-medium;
+    }
+    .container {
+        @apply px-6 py-12 max-w-7xl mt-16 mx-auto lg:px-8 lg:mt-10;
+    }
+    .anchor-hover {
+        @apply border-b border-dotted border-y-gray-300 hover:border-solid hover:border-gray-500;
+    }
+    .gradient-hover-outer {
+        @apply p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;
+    }
+    .gradient-hover-inner {
+        @apply bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50;
+    }
+    .h2-style {
+        @apply text-5xl leading-normal sm:font-semibold max-w-2xl;
+    }
+}
+
+
+
+
+
 @theme {
     --font-display: 'Poppins', sans-serif;
 --font-body:'Inter', sans-serif;
