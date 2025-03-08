@@ -14,109 +14,123 @@
     <!-- ================================================
             NAVBAR SECTION
 ================================================ -->
-    <nav class="p-3 flex bg-white justify-between items-center">
-      <a href="#" id="brand" class="flex gap-2 items-center">
-        <img
-          class="object-cover max-w-12 max-h-12"
-          src="assets/asset 0.png"
-          alt="logo"
-        />
-        <span class="text-lg font-medium font-display">ToDesktop</span>
-      </a>
-      <div id="nav-menu" class="hidden lg:flex gap-12">
-        <a href="#" class="font-medium hover:text-primary">Pricing</a>
-        <a href="#" class="font-medium hover:text-primary">Docs</a>
-        <a href="#" class="font-medium hover:text-primary">Changelog</a>
-        <a href="#" class="font-medium hover:text-primary">Blogs</a>
-        <a href="#" class="font-medium hover:text-primary">Login</a>
-      </div>
-      <button
-        class="hidden lg:flex gap-2 items-center border-2 border-gray-400 px-6 py-2 rounded-lg hover:border-primary cursor-pointer"
-      >
-        <img src="assets/asset 1.svg" alt="" />
-        <span>Electron Developers</span>
-        <i class="fa-solid fa-arrow-right text-primary mt-1.5"></i>
+<nav class="p-3 flex bg-white justify-between items-center fixed top-0 left-0 right-0 z-20 shadow-md">
+  <a href="#" id="brand" class="flex gap-2 items-center flex-1">
+      <img class="object-cover max-w-12 max-h-12" src="./assets/asset 0.png" alt="Logo">
+      <span class="text-lg font-medium font-display">ToDesktop</span>
+  </a>
+  <div id="nav-menu" class="hidden lg:flex gap-12">
+      <a href="#" class="font-medium hover:text-primary">Pricing</a>
+      <a href="#" class="font-medium hover:text-primary">Docs</a>
+      <a href="#" class="font-medium hover:text-primary">Changelog</a>
+      <a href="#" class="font-medium hover:text-primary">Blogs</a>
+      <a href="#" class="font-medium hover:text-primary">Login</a>
+  </div>
+  <div class="hidden lg:flex flex-1 justify-end">
+      <button class="flex gap-2 items-center border border-gray-400 px-6 py-2 rounded-lg hover:border-gray-600">
+          <img src="./assets/asset 1.svg" alt="">
+          <span class="font-display font-medium">Electron Developers</span>
+          <i class="fa-solid fa-arrow-right"></i>
       </button>
+  </div>
+  
 
-      <button class="p-2 md:hidden" onclick="handleMenu()">
-        <i class="fa-solid fa-bars text-gray-600"></i>
-      </button>
+  <button class="p-2 lg:hidden" onclick="handleMenu()">
+      <i class="fa-solid fa-bars text-gray-600"></i>
+  </button>
 
-      <div
-        id="nav-dialog"
-        class="hidden fixed z-10 md:hidden bg-white inset-0 p-3"
-      >
-        <div id="nav-bar" class="flex justify-between">
+  <div id="nav-dialog" class="hidden fixed z-10 md:hidden bg-white inset-0 p-3">
+      <div id="nav-bar" class="flex justify-between">
           <a href="#" id="brand" class="flex gap-2 items-center">
-            <img
-              class="object-cover max-w-12 max-h-12"
-              src="assets/asset 0.png"
-              alt="logo"
-            />
-            <span class="text-lg font-medium font-display">ToDesktop</span>
+              <img class="object-cover max-w-12 max-h-12" src="./assets/asset 0.png" alt="Logo">
+              <span class="text-lg font-medium font-display">ToDesktop</span>
           </a>
           <button class="p-2 md:hidden" onclick="handleMenu()">
-            <i class="fa-solid fa-xmark"></i>
+              <i class="fa-solid fa-xmark text-gray-600"></i>
           </button>
-        </div>
-        <div class="mt-6">
-          <a
-            href="#"
-            class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-r-lg"
-            >Pricing</a
-          >
-          <a
-            href="#"
-            class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-r-lg"
-            >Docs</a
-          >
-          <a
-            href="#"
-            class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-r-lg"
-            >Chnagelog</a
-          >
-          <a
-            href="#"
-            class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-r-lg"
-            >Blog</a
-          >
-          <a
-            href="#"
-            class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-r-lg"
-            >login</a
-          >
-        </div>
-        <div class="h-[1px] bg-gray-300"></div>
-        <button
-          class="flex w-full mt-6 lg:flex gap-2 items-center px-6 py-4 rounded-lg hover:bg-gray-100 cursor-pointer"
-        >
-          <img src="assets/asset 1.svg" alt="" />
-          <span>Electron Developers</span>
-        </button>
       </div>
-    </nav>
+      <div class="mt-6">
+          <a href="#" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Pricing</a>
+          <a href="#" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Docs</a>
+          <a href="#" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Changelog</a>
+          <a href="#" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Blogs</a>
+          <a href="#" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Login</a>
+
+      </div>
+      <div class="h-[1px] bg-gray-300"></div>
+      <button class="mt-6 w-full flex gap-2 items-center  px-6 py-4 rounded-lg hover:bg-gray-50">
+          <img src="./assets/asset 1.svg" alt="">
+          <span>Electron Developers</span>
+      </button>
+  </div>
+  
+</nav>
 
     <!-- ================================================
               MAIN SECTION
 ================================================ -->
-    <main>
+    <main class="mt-16">
       <!-- ================================================
             HERO SECTION
 ================================================ -->
       <div
         id="hero"
-        class="min-h-screen bg-gradient-to-br from-purple-50 via-orange-50 to-transparent"
+        class="min-h-screen bg-gradient-to-b from-purple-50 via-orange-50 to-transparent"
       >
         <div
           id="hero-container"
-          class="max-w-4xl mx-auto px-6 pb-32 flex flex-col"
+          class="max-w-4xl mx-auto px-6 pt-6 pb-16 flex flex-col sm:items-center sm:text-center sm:pt-12 sm:max-w-2xl"
         >
-          <div id="version-text" class="flex items-center my-6 gap-2 border border-yellow-300 bg-yellow-50 rounded-lg px-3 py-1 w-fit shadow-md hover:shadow-lg hover:-translate-y-1 transition group">
+          <div
+            id="version-text"
+            class="flex items-center my-6 gap-2 border border-yellow-300 bg-yellow-50 rounded-lg px-3 py-1 w-fit shadow-md hover:shadow-lg hover:-translate-y-1 transition group"
+          >
             <div
-              class="w-2 h-2 bg-yellow-400 rounded-full border border-yellow-600 mt-0.5"
+              class="w-2 h-2 bg-yellow-400 rounded-full border border-yellow-600"
             ></div>
-            <p class="font-display font-medium text-yellow-600">v0.21.1: <span class="text-yellow-800">Find-in-page bug fixes</span></p>
-            <i class="fa-solid fa-arrow-right text-yellow-600 mt-0.5 group-hover:translate-x-250 transition duration-700"></i>
+            <p class="font-display font-medium text-yellow-600">
+              v0.21.1:
+              <span class="text-yellow-800">Find-in-page bug fixes</span>
+            </p>
+            <i
+              class="fa-solid fa-arrow-right text-yellow-600 group-hover:translate-x-200 transition duration-700"
+            ></i>
+          </div>
+          <div id="hero-features" class="hidden sm:flex gap-8 my-6">
+            <div class="flex justify-center gap-2 items-center text-gray-500">
+              <i class="fa-regular fa-file-code text-sm"></i>
+              <p>Code Optional</p>
+            </div>
+            <div class="flex justify-center gap-2 items-center text-gray-500">
+              <i class="fa-solid fa-hand-back-fist"></i>
+              <p>Drag & drop builder</p>
+            </div>
+            <div class="flex justify-center gap-2 items-center text-gray-500">
+              <i class="fa-solid fa-laptop"></i>
+              <p>Windows, Mac, Linux</p>
+            </div>
+          </div>
+          <h1 class="text-4xl font-semibold leading-snug mt-4 sm:text-6xl">
+            Web app to desktop app in minutes
+          </h1>
+          <p class="text-xl mt-4 sm:text-2xl sm:mt-8 text-gray-800">
+            Take your web app codebase and transform it into a cross platform
+            desktop app with native functionality.
+          </p>
+          <div
+            id="buttons-container"
+            class="mt-12 flex gap-4 flex-col sm:flex-row"
+          >
+            <button
+              class="px-8 py-3 font-semibold rounded-lg text-white bg-primary shadow-sm hover:bg-blue-600"
+            >
+              Download now
+            </button>
+            <button
+              class="px-8 py-3 font-semibold rounded-lg bg-white border border-gray-400 hover:border-gray-800"
+            >
+              Read Docs
+            </button>
           </div>
         </div>
       </div>

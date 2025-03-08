@@ -15,13 +15,17 @@
     body {
         overflow-x: hidden;
     }
+    h1, h2, h3 {
+      @apply font-display text-gray-800 font-medium;
+    }
   }
 @theme {
     --font-display: 'Poppins', sans-serif;
 --font-body:'Inter', sans-serif;
 --font-cursive:'Cedarville Cursive', sans-serif;
 
---color-primary:#3238f2;
+--color-primary: #3238f2;
+
   }
   
   
