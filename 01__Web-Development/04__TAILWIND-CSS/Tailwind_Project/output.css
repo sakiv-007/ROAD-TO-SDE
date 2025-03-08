@@ -1,4 +1,7 @@
 /*! tailwindcss v4.0.9 | MIT License | https://tailwindcss.com */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -7,21 +10,15 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-500: oklch(0.637 0.237 25.331);
-    --color-amber-50: oklch(0.987 0.022 95.277);
-    --color-amber-200: oklch(0.924 0.12 95.746);
     --color-yellow-600: oklch(0.681 0.162 75.834);
     --color-yellow-700: oklch(0.554 0.135 66.442);
-    --color-sky-200: oklch(0.901 0.058 230.902);
+    --color-gray-600: oklch(0.446 0.03 256.802);
     --color-gray-800: oklch(0.278 0.033 256.848);
-    --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
-    --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
     --font-weight-medium: 500;
-    --font-weight-bold: 700;
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -39,6 +36,7 @@
     --default-mono-font-variation-settings: var(
       --font-mono--font-variation-settings
     );
+    --font-display: 'Poppins', sans-serif;
   }
 }
 @layer base {
@@ -1118,9 +1116,6 @@
   .bg-\[var\(--my_variable\)\] {
     background-color: var(--my_variable);
   }
-  .bg-amber-200 {
-    background-color: var(--color-amber-200);
-  }
   .bg-red-500 {
     background-color: var(--color-red-500);
   }
@@ -1129,9 +1124,6 @@
   }
   .bg-red-500\/\[50\%\] {
     background-color: color-mix(in oklab, var(--color-red-500) 50%, transparent);
-  }
-  .bg-sky-200 {
-    background-color: var(--color-sky-200);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -1302,6 +1294,9 @@
   .object-top {
     object-position: top;
   }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
   .p-3 {
     padding: calc(var(--spacing) * 3);
   }
@@ -1347,9 +1342,8 @@
   .align-top {
     vertical-align: top;
   }
-  .text-3xl {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  .font-display {
+    font-family: var(--font-display);
   }
   .text-lg {
     font-size: var(--text-lg);
@@ -1358,10 +1352,6 @@
   .leading-none {
     --tw-leading: 1;
     line-height: 1;
-  }
-  .font-bold {
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
   }
   .font-medium {
     --tw-font-weight: var(--font-weight-medium);
@@ -1440,11 +1430,8 @@
   .\[color\:red\]\/50\! {
     color: color-mix(in oklab, red 50%, transparent) !important;
   }
-  .text-amber-50 {
-    color: var(--color-amber-50);
-  }
-  .text-black {
-    color: var(--color-black);
+  .text-gray-600 {
+    color: var(--color-gray-600);
   }
   .text-yellow-600 {
     color: var(--color-yellow-600);
@@ -1932,6 +1919,11 @@
       @media (hover: hover) {
         color: var(--color-yellow-700);
       }
+    }
+  }
+  .md\:hidden {
+    @media (width >= 48rem) {
+      display: none;
     }
   }
 }
