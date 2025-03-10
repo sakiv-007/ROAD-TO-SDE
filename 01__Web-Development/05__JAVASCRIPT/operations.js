@@ -17,6 +17,9 @@ myscore++
 let credits = 56
 credits--
 
+console.log(totalScore   ,    addition, subtraction,mult,div,remainder,expo,myscore,credits);
+
+
 // comparison operation
 
 let num1 = 3
