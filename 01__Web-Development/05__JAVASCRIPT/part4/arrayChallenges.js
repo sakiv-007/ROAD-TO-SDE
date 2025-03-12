@@ -21,8 +21,8 @@ const favoriteCity = cities[2];
 */
 let teaTypes = ["herbel tea", "white tea", "masala chai"];
 teaTypes[1] = ["jasmine tea"]
-console.log(teaTypes[1]);
-console.log(teaTypes);
+// console.log(teaTypes[1]);
+// console.log(teaTypes);
 
 
 
@@ -33,7 +33,7 @@ console.log(teaTypes);
 
 let citiesVisited = ["Mumbai", "Sydney"];
 citiesVisited.push("Berlin");
-// console.log(citiesVisited);
+//  console.log(citiesVisited);
 
 /* 
 5. You have an array named `teaOrders` with `"chai"`, `"iced tea"`, `"matcha"`, and `"earl grey"`. 
@@ -49,10 +49,10 @@ const lastOrder = teaOrders.pop();
 */
 
 let popularTeas = ["green tea", "oolong tea", "chai"];
-let softCopyTeas = popularTeas;
+let softCopyTeas =  popularTeas;
 popularTeas.pop();
-// console.log(softCopyTeas);
-// console.log(popularTeas);
+//  console.log(softCopyTeas);
+//  console.log(popularTeas);
 
 /* 
 7. You have an array named `topCities` containing `"Berlin"`, `"Singapore"`, and `"New York"`. 
@@ -63,7 +63,13 @@ let topCities = ["Berlin", "Singapore", "New York"];
 let hardCopyCities = [...topCities];
 // let hardCopyCities = topCities.slice();
 topCities.pop();
+topCities.pop();
 // console.log(hardCopyCities);
+// console.log(topCities);
+
+
+
+
 
 /* 
 8. You have two arrays: `europeanCities` containing `"Paris"` and `"Rome"`, and `asianCities` containing `"Tokyo"` and `"Bangkok"`. 
@@ -84,6 +90,8 @@ console.log(worldCities);
 let teaMenu = ["Masala chai", "oolong tea", "green tea", "earl grey"];
 
 let menuLength = teaMenu.length;
+console.log(menuLength);
+
 
 /* 
 10. You have an array named `cityBucketList` containing `"Kyoto"`, `"London"`, `"Cape Town"`, and `"Vancouver"`. 
@@ -91,5 +99,8 @@ let menuLength = teaMenu.length;
 */
 
 let cityBucketList = ["Kyoto", "London", "Cape Town", "Vancouver"];
+cityBucketList.shift();  //removes the first element
+console.log(cityBucketList);
 
 let isLondonInList = cityBucketList.includes("London");
+console.log(isLondonInList);
