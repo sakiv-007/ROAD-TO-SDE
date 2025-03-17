@@ -22,18 +22,18 @@ while (j>0){
 //write a 'do while' loop that prompts a user to enter their favorite tea until they enter "stop" 
 // store each tea type in an array named 'teacollection'
 
-/* 
+
 let teaCollection = []
 let tea
-do {
-  tea =  prompt(`Enter your favorite Tea (Type "Stop" to finish) `)
-  if (tea !== "stop") {
-   teaCollection.push(tea)
+// do {
+//   tea =  prompt(`Enter your favorite Tea (Type "Stop" to finish) `)
+//   if (tea !== "stop") {
+//    teaCollection.push(tea)
    
-  }
-} while (tea !== "stop");        //run it in the browser as node does not support the prompt
+//   }
+// } while (tea !== "stop");        //run it in the browser as node does not support the prompt
 
- */
+
 
 //write a do while loop that adds numbers from 1 to 3 and stores the result in a variable named total
 
@@ -48,3 +48,29 @@ do {
 
 
 //write a 'for' loop that multiplies each element in the array '[2,4,6]' by 2 and stores the results in a new array named 'multipliedNumbers'.
+
+let multipliedNumbers = []
+let numbers = [2,4,6]
+
+for (let l = 0; l < numbers.length; l++) {
+   // takeNumber = numbers[l] * 2;
+   // multipliedNumbers.push(takeNumber)
+   
+   multipliedNumbers.push(numbers[l] * 2)
+}
+// console.log(multipliedNumbers);
+
+
+
+//write a for loop that lists all the cities in the array ["Paris", "New York", "Tokyo", "London" ] and stores each city in a new aaray named 'cityList'.
+
+let cities = ["Paris", "New York", "Tokyo", "London" ]
+let cityList = []
+
+for (let c = 0; c < cities.length; c++) {
+   const myCity = cities[c];
+   cityList.push(myCity);
+}
+// console.log(cityList);
+
+
