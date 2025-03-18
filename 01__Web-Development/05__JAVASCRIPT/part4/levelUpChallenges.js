@@ -128,3 +128,8 @@ for (const tea of teass) {
             }
          console.log(largeCities);
          
+/* 
+7. Write a forEach loop that iterated through the array '["early gray", "green tea", "chai" , "oolong tea"]'.
+            stop the loop when "chai" is found and store all the previous tea types in an array named 'availableTeas'
+
+          */
