@@ -167,7 +167,16 @@ teaCollection.forEach(function (tea) {
         skip the value '7' and multply the rest by 2. Store the rsults in a new array named 'doubleNumbers'
    */ 
   
-        
+        let myNumbers = [2,5,7,9]
+        let doubleNumbers = []
+
+       for (let i = 0; i < myNumbers.length; i++) {
+        if (myNumbers[i] === 7) {
+            continue
+        }
+        doubleNumbers.push(myNumbers[i] * 2)
+       }
+// console.log(doubleNumbers);
 
 
         /*     
@@ -177,3 +186,14 @@ teaCollection.forEach(function (tea) {
         Store the teas iterated over in an array named 'shortTeas'
    */ 
 
+let myTeas = ["chai", "green tea", "black tea", "jasmine tea", "herbal tea"]
+let shortTeas = []
+
+for (const tea of myTeas) {
+    if (tea.length > 10) {
+        break
+        
+    }
+    shortTeas.push(tea)
+}
+console.log(shortTeas);
