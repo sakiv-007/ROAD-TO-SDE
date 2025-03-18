@@ -161,4 +161,16 @@ teaCollection.forEach(function (tea) {
         traveledCities.push(city);
     });
     // console.log(traveledCities);
-    
+  
+/*     
+9. Write a for loop that iterates the aaray [2,5,7,9]
+        skip the value '7' and multply the rest by 2. Store the rsults in a new array named 'doubleNumbers'
+   */  
+
+
+        /*     
+10. use a for-of loop to iterate through the array ["chai", "green tea", "black tea", "jasmine tea", "herbal tea"]
+
+        and stop when the length of the current tea name is greater than 10.
+        Store the teas iterated over in an array named 'shortTeas'
+   */ 
