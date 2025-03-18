@@ -126,13 +126,24 @@ for (const tea of teass) {
                 }
                 largeCities[city] = worldCities[city]
             }
-         console.log(largeCities);
+        //  console.log(largeCities);
          
 /* 
-7. Write a forEach loop that iterated through the array '["early gray", "green tea", "chai" , "oolong tea"]'.
+7. Write a forEach loop that iterated through the array '["early grey", "green tea", "chai" , "oolong tea"]'.
             stop the loop when "chai" is found and store all the previous tea types in an array named 'availableTeas'
 
           */
+
+      let teaCollection =      ["early grey", "green tea", "chai" , "oolong tea"]
+let availableTeas = []
+
+teaCollection.forEach(function (tea) {
+    if (tea === "chai") {
+        return;   
+    }
+    availableTeas.push(tea)
+});
+// console.log(availableTeas);
 
 
             /* 
@@ -140,3 +151,14 @@ for (const tea of teass) {
             skip "Sydney" and store  the cities in a new array   named 'traveledCities'
 
           */
+    let myworlCities = ["Berlin", "Tokyo", "Sydney" , "Paris"]
+    let traveledCities = []
+
+    myworlCities.forEach(function (city)  {
+        if (city === "Sydney") {
+            return;
+        }
+        traveledCities.push(city);
+    });
+    // console.log(traveledCities);
+    
