@@ -165,7 +165,9 @@ teaCollection.forEach(function (tea) {
 /*     
 9. Write a for loop that iterates the aaray [2,5,7,9]
         skip the value '7' and multply the rest by 2. Store the rsults in a new array named 'doubleNumbers'
-   */  
+   */ 
+  
+        
 
 
         /*     
@@ -174,3 +176,4 @@ teaCollection.forEach(function (tea) {
         and stop when the length of the current tea name is greater than 10.
         Store the teas iterated over in an array named 'shortTeas'
    */ 
+
