@@ -133,3 +133,10 @@ for (const tea of teass) {
             stop the loop when "chai" is found and store all the previous tea types in an array named 'availableTeas'
 
           */
+
+
+            /* 
+8. Write a forEach loop that iterated through the array '["Berlin", "Tokyo", "Sydney" , "Paris"]'.
+            skip "Sydney" and store  the cities in a new array   named 'traveledCities'
+
+          */
