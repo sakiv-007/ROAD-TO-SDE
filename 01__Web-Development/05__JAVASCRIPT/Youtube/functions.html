@@ -7,12 +7,28 @@
   </head>
   <body>
     <script>
-      function function1() {
+      /* function function1() {
         console.log("hello");
         console.log(2*5);
       
       }
-      function1()
-    </script>
+      function1() */
+
+
+
+     /*  function calculateTax(parameter1){
+        console.log(parameter1 * 0.1);
+      }
+      calculateTax(1000)
+      calculateTax(2000) */
+
+
+      function calculateTax(cost, taxPercent = 0.1){     //here the 0.11 is the default value for the second parameter if 
+        console.log(cost * taxPercent);
+      }
+      calculateTax(1000, 0.2);
+      calculateTax(1000);
+      calculateTax(5000);
+      </script>
   </body>
 </html>
