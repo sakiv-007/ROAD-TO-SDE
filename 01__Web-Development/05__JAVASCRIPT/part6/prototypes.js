@@ -21,3 +21,4 @@ console.log(`tesla`, Object.getPrototypeOf(tesla));
 
 
 
+console.log();
