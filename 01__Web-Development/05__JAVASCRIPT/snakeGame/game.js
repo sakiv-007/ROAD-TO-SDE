@@ -313,8 +313,4 @@ restartButton.addEventListener('click', resetGame);
 
 addTouchControls();
 modal.style.display = 'block';
-<<<<<<< HEAD
 updateLeaderboard();
-=======
-updateLeaderboard();
->>>>>>> 382f88f30845574a32ab404a4ec1355ee4531f06
