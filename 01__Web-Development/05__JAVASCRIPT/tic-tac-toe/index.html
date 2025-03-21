@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,4 +51,58 @@
     
     <script src="script.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic-Tac-Toe</h1>
+        
+        <div class="status" id="status">Player X's turn</div>
+        
+        <div class="game-board" id="board">
+            <div class="cell" data-cell-index="0"></div>
+            <div class="cell" data-cell-index="1"></div>
+            <div class="cell" data-cell-index="2"></div>
+            <div class="cell" data-cell-index="3"></div>
+            <div class="cell" data-cell-index="4"></div>
+            <div class="cell" data-cell-index="5"></div>
+            <div class="cell" data-cell-index="6"></div>
+            <div class="cell" data-cell-index="7"></div>
+            <div class="cell" data-cell-index="8"></div>
+        </div>
+        
+        <button id="restartButton">Restart Game</button>
+        
+        <div class="score-board">
+            <div class="score">
+                <span>Player X:</span>
+                <span id="scoreX">0</span>
+            </div>
+            <div class="score">
+                <span>Player O:</span>
+                <span id="scoreO">0</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Congratulations Popup -->
+    <div id="congratsPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Congratulations!</h2>
+            <p id="winnerMessage"></p>
+            <div class="confetti"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+>>>>>>> a1fa66ba5f7c9796f53ae8c83e71daa2f773141b
 </html>

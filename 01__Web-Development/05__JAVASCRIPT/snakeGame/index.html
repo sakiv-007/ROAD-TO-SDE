@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,3 +37,43 @@
     <script src="game.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/3d-cartoon-cobra-snake-logo-illustration-no-background-png.png" type="image/x-icon">
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="game-container">
+            <div class="score">Score: <span id="scoreValue">0</span></div>
+            <canvas id="gameCanvas"></canvas>
+            <div class="controls">
+                <button class="control-btn up-btn">↑</button>
+                <button class="control-btn left-btn">←</button>
+                <button class="control-btn right-btn">→</button>
+                <button class="control-btn down-btn">↓</button>
+            </div>
+            <button id="restartButton" class="restart-btn">Restart Game</button>
+        </div>
+        <div class="leaderboard">
+            <h2>Top Scores</h2>
+            <div id="leaderboardList"></div>
+        </div>
+    </div>
+    
+    <div id="playerModal" class="modal">
+        <div class="modal-content">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="playerName" maxlength="15" placeholder="Player Name">
+            <button id="startGame">Start Game</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
+>>>>>>> a1fa66ba5f7c9796f53ae8c83e71daa2f773141b
