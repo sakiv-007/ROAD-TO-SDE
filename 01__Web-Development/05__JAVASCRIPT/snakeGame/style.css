@@ -1,0 +1,239 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1a1a1a;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.game-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.game-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+canvas {
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.score {
+    color: #fff;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.restart-btn {
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    margin-top: 20px;
+}
+
+.restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.restart-btn:active {
+    transform: translateY(0);
+}
+
+.leaderboard {
+    position: fixed;
+    top: 26%;
+    right: 210px;
+    /* transform: translateY(-50%); */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 250px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.leaderboard h2 {
+    color: #fff;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.leaderboard-item {
+    color: #fff;
+    padding: 12px 15px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.current-player {
+    background: rgba(46, 204, 113, 0.2);
+    border-left: 3px solid #2ecc71;
+}
+
+.leaderboard-item:hover {
+    transform: translateX(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #2c3e50;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: #fff;
+    margin-top: 0;
+}
+
+#playerName {
+    padding: 10px;
+    margin: 20px 0;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#startGame {
+    padding: 10px 20px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+#startGame:hover {
+    background: #219f54;
+}
+
+.controls {
+    display: none;
+    grid-template-areas:
+        ". up ."
+        "left . right"
+        ". down .";
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.control-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.up-btn { grid-area: up; }
+.down-btn { grid-area: down; }
+.left-btn { grid-area: left; }
+.right-btn { grid-area: right; }
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .game-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    canvas {
+        width: 300px;
+        height: 300px;
+    }
+
+    .controls {
+        display: grid;
+    }
+
+    .leaderboard {
+        position: static;
+        width: 100%;
+        max-width: 300px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .leaderboard {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .game-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
