@@ -270,3 +270,10 @@ button:hover {
         font-size: 1.1rem;
     }
 }
+
+.player-symbol {
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 5px;
+    color: #4CAF50;
+}

@@ -251,7 +251,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Show congratulations popup
     function showCongratsPopup(winner) {
-        winnerMessage.textContent = `${winner} wins the game!`;
+        if (isPlayingAgainstAI) {
+            if (winner === "Your") {
+                winnerMessage.textContent = "You won the Game!";
+            } else {
+                winnerMessage.textContent = "AI won the Game!";
+            }
+        } else {
+            winnerMessage.textContent = `${winner} won the game!`;
+        }
         congratsPopup.style.display = 'flex';
     }
     
