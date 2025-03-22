@@ -1,19 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Game variables
+    let gameActive = true;
+    let currentPlayer = "X";
+    let gameState = ["", "", "", "", "", "", "", "", ""];
+    let playerXName = "Player X";
+    let playerOName = "Player O";
+    let isPlayingAgainstAI = false;
+    let scores = { X: 0, O: 0 };
+    
+    // DOM elements
     const statusDisplay = document.getElementById('status');
-    const cells = document.querySelectorAll('.cell');
-    const restartButton = document.getElementById('restartButton');
+    const gameModePopup = document.getElementById('gameModePopup');
+    const playerNamesPopup = document.getElementById('playerNamesPopup');
+    const playWithAIButton = document.getElementById('playWithAI');
+    const playWithFriendButton = document.getElementById('playWithFriend');
+    const startGameButton = document.getElementById('startGame');
+    const player1NameInput = document.getElementById('player1Name');
+    const player2NameInput = document.getElementById('player2Name');
     const scoreXDisplay = document.getElementById('scoreX');
     const scoreODisplay = document.getElementById('scoreO');
+    const cells = document.querySelectorAll('.cell');
+    const restartButton = document.getElementById('restartButton');
     const congratsPopup = document.getElementById('congratsPopup');
     const winnerMessage = document.getElementById('winnerMessage');
     const closeBtn = document.querySelector('.close-btn');
     const board = document.getElementById('board');
     
-    let gameActive = true;
-    let currentPlayer = 'X';
-    let gameState = ['', '', '', '', '', '', '', '', ''];
-    let scores = { X: 0, O: 0 };
-    
+    // Winning conditions
     const winningConditions = [
         [0, 1, 2],
         [3, 4, 5],
@@ -25,11 +38,64 @@ document.addEventListener('DOMContentLoaded', () => {
         [2, 4, 6]
     ];
     
-    const winningMessageText = () => `Player ${currentPlayer} has won!`;
-    const drawMessage = () => `Game ended in a draw!`;
-    const currentPlayerTurn = () => `Player ${currentPlayer}'s turn`;
+    // Show game mode selection popup when page loads
+    gameModePopup.style.display = 'flex';
     
-    statusDisplay.innerHTML = currentPlayerTurn();
+    // Initially disable cell clicks until game starts
+    gameActive = false;
+    
+    // Event listeners for game mode selection
+    playWithAIButton.addEventListener('click', () => {
+        isPlayingAgainstAI = true;
+        playerXName = "Your";
+        playerOName = "AI";
+        gameModePopup.style.display = 'none';
+        startGame();
+    });
+    
+    playWithFriendButton.addEventListener('click', () => {
+        isPlayingAgainstAI = false;
+        gameModePopup.style.display = 'none';
+        playerNamesPopup.style.display = 'flex';
+    });
+    
+    // Event listener for player names submission
+    startGameButton.addEventListener('click', () => {
+        playerXName = player1NameInput.value.trim() || "Player 1";
+        playerOName = player2NameInput.value.trim() || "Player 2";
+        playerNamesPopup.style.display = 'none';
+        startGame();
+    });
+    
+    function startGame() {
+        gameActive = true;
+        currentPlayer = 'X';
+        gameState = ['', '', '', '', '', '', '', '', ''];
+        
+        // Clear the board
+        cells.forEach(cell => {
+            cell.innerHTML = '';
+            cell.classList.remove('x', 'o', 'winning-cell');
+        });
+        
+        // Remove winning line if it exists
+        const existingLine = document.querySelector('.winning-line');
+        if (existingLine) {
+            existingLine.remove();
+        }
+        
+        updateStatusDisplay();
+    }
+    
+    function updateStatusDisplay() {
+        const currentPlayerName = currentPlayer === "X" ? playerXName : playerOName;
+        // Display player name with their symbol
+        if (currentPlayerName === "Your") {
+            statusDisplay.innerHTML = `${currentPlayerName} Turn <span class="player-symbol">(${currentPlayer})</span>`;
+        } else {
+            statusDisplay.innerHTML = `${currentPlayerName}'s Turn <span class="player-symbol">(${currentPlayer})</span>`;
+        }
+    }
     
     function handleCellClick(clickedCellEvent) {
         const clickedCell = clickedCellEvent.target;
@@ -41,6 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         handleCellPlayed(clickedCell, clickedCellIndex);
         handleResultValidation();
+        
+        // If game is still active and playing against AI, make AI move
+        if (gameActive && isPlayingAgainstAI && currentPlayer === 'O') {
+            makeAIMove();
+        }
     }
     
     function handleCellPlayed(clickedCell, clickedCellIndex) {
@@ -71,7 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         if (roundWon) {
-            statusDisplay.innerHTML = winningMessageText();
+            const winnerName = currentPlayer === 'X' ? playerXName : playerOName;
+            statusDisplay.innerHTML = `${winnerName} has won!`;
             gameActive = false;
             
             // Highlight winning cells
@@ -87,14 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
             updateScoreDisplay();
             
             // Show congratulations popup
-            showCongratsPopup(currentPlayer);
+            showCongratsPopup(winnerName);
             
             return;
         }
         
         const roundDraw = !gameState.includes('');
         if (roundDraw) {
-            statusDisplay.innerHTML = drawMessage();
+            statusDisplay.innerHTML = 'Game ended in a draw!';
             gameActive = false;
             return;
         }
@@ -104,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function changePlayer() {
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        statusDisplay.innerHTML = currentPlayerTurn();
+        updateStatusDisplay();
     }
     
     function updateScoreDisplay() {
@@ -116,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gameActive = true;
         currentPlayer = 'X';
         gameState = ['', '', '', '', '', '', '', '', ''];
-        statusDisplay.innerHTML = currentPlayerTurn();
+        updateStatusDisplay();
         
         // Remove winning line if it exists
         const existingLine = document.querySelector('.winning-line');
@@ -179,9 +251,41 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Show congratulations popup
     function showCongratsPopup(winner) {
-        winnerMessage.textContent = `Player ${winner} wins the game!`;
+        winnerMessage.textContent = `${winner} wins the game!`;
         congratsPopup.style.display = 'flex';
     }
+    
+    // AI functionality
+    function makeAIMove() {
+        if (isPlayingAgainstAI && currentPlayer === "O" && gameActive) {
+            // Simple AI implementation (random move)
+            const emptyCells = gameState.reduce((acc, cell, index) => {
+                if (cell === "") acc.push(index);
+                return acc;
+            }, []);
+            
+            if (emptyCells.length > 0) {
+                const randomIndex = Math.floor(Math.random() * emptyCells.length);
+                const cellIndex = emptyCells[randomIndex];
+                
+                // Simulate a delay for AI "thinking"
+                setTimeout(() => {
+                    if (gameActive) { // Check if game is still active after delay
+                        const clickedCell = document.querySelector(`[data-cell-index="${cellIndex}"]`);
+                        handleCellPlayed(clickedCell, cellIndex);
+                        handleResultValidation();
+                    }
+                }, 700);
+            }
+        }
+    }
+    
+    // Event listeners
+    cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+    restartButton.addEventListener('click', () => {
+        handleRestartGame();
+        congratsPopup.style.display = 'none';
+    });
     
     // Close popup when clicking the close button
     closeBtn.addEventListener('click', () => {
@@ -193,12 +297,5 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target === congratsPopup) {
             congratsPopup.style.display = 'none';
         }
-    });
-    
-    // Event listeners
-    cells.forEach(cell => cell.addEventListener('click', handleCellClick));
-    restartButton.addEventListener('click', () => {
-        handleRestartGame();
-        congratsPopup.style.display = 'none';
     });
 });

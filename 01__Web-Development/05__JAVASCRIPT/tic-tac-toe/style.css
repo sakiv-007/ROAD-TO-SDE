@@ -146,46 +146,100 @@ button:hover {
     color: #2d3748;
 }
 
-/* Popup styles */
+/* Add these styles to your existing CSS file */
+
 .popup {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
 }
 
 .popup-content {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 20px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
     text-align: center;
-    position: relative;
-    max-width: 400px;
+    max-width: 500px;
     width: 90%;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes popIn {
-    0% { transform: scale(0.8); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+.game-mode-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.game-mode-buttons button {
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.game-mode-buttons button:hover {
+    background-color: #45a049;
+}
+
+.player-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#startGame {
+    margin-top: 15px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#startGame:hover {
+    background-color: #45a049;
 }
 
 .close-btn {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.5rem;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
     cursor: pointer;
-    color: #a0aec0;
-    transition: color 0.3s ease;
 }
 
 .close-btn:hover {
