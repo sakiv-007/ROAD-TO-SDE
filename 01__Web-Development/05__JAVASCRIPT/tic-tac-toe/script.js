@@ -251,14 +251,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Show congratulations popup
     function showCongratsPopup(winner) {
+        // Fix the selector to correctly target the h2 element
+        const popupHeading = document.querySelector('#congratsPopup .popup-content h2');
+        
         if (isPlayingAgainstAI) {
             if (winner === "Your") {
                 winnerMessage.textContent = "You won the Game!";
+                popupHeading.textContent = "Congratulations!";
             } else {
                 winnerMessage.textContent = "AI won the Game!";
+                popupHeading.textContent = "Game Over";
             }
         } else {
             winnerMessage.textContent = `${winner} won the game!`;
+            popupHeading.textContent = "Congratulations!";
         }
         congratsPopup.style.display = 'flex';
     }
