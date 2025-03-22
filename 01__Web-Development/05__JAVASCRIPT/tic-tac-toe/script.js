@@ -81,9 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
         startGame();
     });
     
+    // Add a variable to track the last winner
+    let lastWinner = 'X'; // Default first player is X
+    
     function startGame() {
         gameActive = true;
+        // Always start with X for the first game
         currentPlayer = 'X';
+        lastWinner = 'X'; // Reset last winner for new game sessions
         gameState = ['', '', '', '', '', '', '', '', ''];
         
         // Clear the board
@@ -158,6 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (roundWon) {
             const winnerName = currentPlayer === 'X' ? playerXName : playerOName;
             
+            // Store the last winner
+            lastWinner = currentPlayer;
+            
             // Update status message for player win in AI mode
             if (isPlayingAgainstAI && currentPlayer === 'X') {
                 statusDisplay.innerHTML = "You won the game!";
@@ -207,7 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function handleRestartGame() {
         gameActive = true;
-        currentPlayer = 'X';
+        // Set the current player to the last winner
+        currentPlayer = lastWinner;
         gameState = ['', '', '', '', '', '', '', '', ''];
         updateStatusDisplay();
         
