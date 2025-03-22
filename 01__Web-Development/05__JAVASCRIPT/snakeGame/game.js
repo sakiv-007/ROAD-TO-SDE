@@ -298,7 +298,10 @@ function startNewGame() {
     score = 0;
     scoreElement.textContent = score;
     clearInterval(gameLoop);
-    gameLoop = setInterval(update, 100);
+    
+    // Set different game speeds based on device size
+    const gameSpeed = window.innerWidth <= 768 ? 150 : 100; // Slower on mobile
+    gameLoop = setInterval(update, gameSpeed);
 }
 
 function resetGame() {
