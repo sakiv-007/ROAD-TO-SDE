@@ -143,7 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (roundWon) {
             const winnerName = currentPlayer === 'X' ? playerXName : playerOName;
-            statusDisplay.innerHTML = `${winnerName} has won!`;
+            
+            // Update status message for player win in AI mode
+            if (isPlayingAgainstAI && currentPlayer === 'X') {
+                statusDisplay.innerHTML = "You won the game!";
+            } else {
+                statusDisplay.innerHTML = `${winnerName} has won!`;
+            }
+            
             gameActive = false;
             
             // Highlight winning cells
