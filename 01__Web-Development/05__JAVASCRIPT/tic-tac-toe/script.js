@@ -218,7 +218,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set the current player to the last winner
         currentPlayer = lastWinner;
         gameState = ['', '', '', '', '', '', '', '', ''];
-        updateStatusDisplay();
+        
+        // Clear the board
+        cells.forEach(cell => {
+            cell.innerHTML = '';
+            cell.classList.remove('x', 'o', 'winning-cell');
+        });
         
         // Remove winning line if it exists
         const existingLine = document.querySelector('.winning-line');
@@ -226,10 +231,15 @@ document.addEventListener('DOMContentLoaded', () => {
             existingLine.remove();
         }
         
-        cells.forEach(cell => {
-            cell.innerHTML = '';
-            cell.classList.remove('x', 'o', 'winning-cell');
-        });
+        updateStatusDisplay();
+        
+        // If AI won the previous game and should go first, make AI move automatically
+        if (isPlayingAgainstAI && currentPlayer === 'O') {
+            // Small delay to allow the board to reset visually
+            setTimeout(() => {
+                makeAIMove();
+            }, 500);
+        }
     }
     
     // Function to draw a line over winning cells
