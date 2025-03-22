@@ -273,6 +273,31 @@ document.addEventListener('DOMContentLoaded', () => {
             winnerMessage.textContent = `${winner} won the game!`;
             popupHeading.textContent = "Congratulations!";
         }
+        
+        // Ensure the close button is visible and properly positioned
+        if (!document.querySelector('.popup-close')) {
+            const closeButton = document.createElement('span');
+            closeButton.classList.add('popup-close');
+            closeButton.innerHTML = '&times;';
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '10px';
+            closeButton.style.right = '15px';
+            closeButton.style.fontSize = '24px';
+            closeButton.style.fontWeight = 'bold';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.color = '#333';
+            
+            // Add event listener to close the popup
+            closeButton.addEventListener('click', () => {
+                congratsPopup.style.display = 'none';
+            });
+            
+            // Add the close button to the popup content
+            const popupContent = document.querySelector('#congratsPopup .popup-content');
+            popupContent.style.position = 'relative';
+            popupContent.appendChild(closeButton);
+        }
+        
         congratsPopup.style.display = 'flex';
     }
     
