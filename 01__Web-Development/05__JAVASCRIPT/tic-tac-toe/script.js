@@ -45,11 +45,20 @@ document.addEventListener('DOMContentLoaded', () => {
     gameActive = false;
     
     // Event listeners for game mode selection
+    // Add these DOM elements at the top with other DOM elements
+    const playerXLabel = document.getElementById('playerXLabel');
+    const playerOLabel = document.getElementById('playerOLabel');
+    
     playWithAIButton.addEventListener('click', () => {
         isPlayingAgainstAI = true;
         playerXName = "Your";
         playerOName = "AI";
         gameModePopup.style.display = 'none';
+        
+        // Update score labels for AI mode
+        playerXLabel.textContent = "YOU X:";
+        playerOLabel.textContent = "AI O:";
+        
         startGame();
     });
     
@@ -64,6 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
         playerXName = player1NameInput.value.trim() || "Player 1";
         playerOName = player2NameInput.value.trim() || "Player 2";
         playerNamesPopup.style.display = 'none';
+        
+        // Update score labels for friend mode
+        playerXLabel.textContent = `${playerXName} X:`;
+        playerOLabel.textContent = `${playerOName} O:`;
+        
         startGame();
     });
     
