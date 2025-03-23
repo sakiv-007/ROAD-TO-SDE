@@ -197,6 +197,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (roundDraw) {
             statusDisplay.innerHTML = 'Game ended in a draw!';
             gameActive = false;
+            
+            // Reverse the next starting player after a tie
+            lastWinner = lastWinner === 'X' ? 'O' : 'X';
+            
             return;
         }
         
@@ -337,26 +341,85 @@ document.addEventListener('DOMContentLoaded', () => {
     // AI functionality
     function makeAIMove() {
         if (isPlayingAgainstAI && currentPlayer === "O" && gameActive) {
-            // Simple AI implementation (random move)
-            const emptyCells = gameState.reduce((acc, cell, index) => {
-                if (cell === "") acc.push(index);
-                return acc;
-            }, []);
-            
-            if (emptyCells.length > 0) {
-                const randomIndex = Math.floor(Math.random() * emptyCells.length);
-                const cellIndex = emptyCells[randomIndex];
+            // Improved AI implementation with strategy
+            setTimeout(() => {
+                if (gameActive) { // Check if game is still active after delay
+                    const cellIndex = getBestMove();
+                    const clickedCell = document.querySelector(`[data-cell-index="${cellIndex}"]`);
+                    handleCellPlayed(clickedCell, cellIndex);
+                    handleResultValidation();
+                }
+            }, 700);
+        }
+    }
+    
+    // Function to get the best move for AI
+    function getBestMove() {
+        // Check if AI can win in the next move
+        const winMove = findWinningMove('O');
+        if (winMove !== -1) return winMove;
+        
+        // Check if player can win in the next move and block it
+        const blockMove = findWinningMove('X');
+        if (blockMove !== -1) return blockMove;
+        
+        // Try to take the center if it's free
+        if (gameState[4] === '') return 4;
+        
+        // Try to take the corners
+        const corners = [0, 2, 6, 8];
+        const availableCorners = corners.filter(corner => gameState[corner] === '');
+        if (availableCorners.length > 0) {
+            return availableCorners[Math.floor(Math.random() * availableCorners.length)];
+        }
+        
+        // Take any available side
+        const sides = [1, 3, 5, 7];
+        const availableSides = sides.filter(side => gameState[side] === '');
+        if (availableSides.length > 0) {
+            return availableSides[Math.floor(Math.random() * availableSides.length)];
+        }
+        
+        // If all else fails, pick a random empty cell
+        const emptyCells = gameState.reduce((acc, cell, index) => {
+            if (cell === "") acc.push(index);
+            return acc;
+        }, []);
+        
+        if (emptyCells.length > 0) {
+            return emptyCells[Math.floor(Math.random() * emptyCells.length)];
+        }
+        
+        return -1; // No valid moves (shouldn't happen)
+    }
+    
+    // Function to find a winning move for the given player
+    function findWinningMove(player) {
+        for (let i = 0; i < gameState.length; i++) {
+            if (gameState[i] === '') {
+                // Try this move
+                gameState[i] = player;
                 
-                // Simulate a delay for AI "thinking"
-                setTimeout(() => {
-                    if (gameActive) { // Check if game is still active after delay
-                        const clickedCell = document.querySelector(`[data-cell-index="${cellIndex}"]`);
-                        handleCellPlayed(clickedCell, cellIndex);
-                        handleResultValidation();
+                // Check if this move would win
+                let wouldWin = false;
+                for (let j = 0; j < winningConditions.length; j++) {
+                    const [a, b, c] = winningConditions[j];
+                    if (gameState[a] === player && gameState[b] === player && gameState[c] === player) {
+                        wouldWin = true;
+                        break;
                     }
-                }, 700);
+                }
+                
+                // Undo the move
+                gameState[i] = '';
+                
+                if (wouldWin) {
+                    return i; // Return the winning move
+                }
             }
         }
+        
+        return -1; // No winning move found
     }
     
     // Event listeners
