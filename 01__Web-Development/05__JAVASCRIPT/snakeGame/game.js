@@ -10,7 +10,11 @@ const upBtn = document.querySelector('.up-btn');
 const downBtn = document.querySelector('.down-btn');
 const leftBtn = document.querySelector('.left-btn');
 const rightBtn = document.querySelector('.right-btn');
+// Add pause button reference
+const pauseBtn = document.querySelector('.pause-btn') || document.createElement('button');
 
+// Add pause state variable
+let isPaused = false;
 let currentPlayer = '';
 let leaderboard = JSON.parse(localStorage.getItem('snakeLeaderboard')) || [];
 
@@ -66,15 +70,32 @@ function generateFood() {
 function drawSnake() {
     snake.forEach((segment, index) => {
         if (index === 0) {
+            // Tom's head
             ctx.beginPath();
-            ctx.fillStyle = '#2ecc71';
-            ctx.strokeStyle = '#27ae60';
+            ctx.fillStyle = '#A9A9A9'; // Gray color for Tom
+            ctx.strokeStyle = '#696969';
             ctx.lineWidth = 2;
             ctx.arc(segment.x + gridSize/2, segment.y + gridSize/2, gridSize/2 - 1, 0, Math.PI * 2);
             ctx.fill();
             ctx.stroke();
             
-            ctx.fillStyle = '#000';
+            // Tom's ears
+            ctx.beginPath();
+            ctx.fillStyle = '#A9A9A9';
+            ctx.moveTo(segment.x + gridSize/4, segment.y);
+            ctx.lineTo(segment.x + gridSize/2, segment.y - gridSize/3);
+            ctx.lineTo(segment.x + gridSize*3/4, segment.y);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.moveTo(segment.x + gridSize/4, segment.y);
+            ctx.lineTo(segment.x, segment.y - gridSize/3);
+            ctx.lineTo(segment.x, segment.y);
+            ctx.fill();
+            
+            // Tom's eyes
+            ctx.fillStyle = '#FFFFFF';
+            ctx.beginPath();
             let eyeX1, eyeX2, eyeY1, eyeY2;
             switch(direction) {
                 case 'right':
@@ -98,55 +119,102 @@ function drawSnake() {
                     eyeY1 = eyeY2 = segment.y + gridSize * 0.7;
                     break;
             }
-            ctx.beginPath();
-            ctx.arc(eyeX1, eyeY1, 2, 0, Math.PI * 2);
-            ctx.arc(eyeX2, eyeY2, 2, 0, Math.PI * 2);
+            ctx.arc(eyeX1, eyeY1, 3, 0, Math.PI * 2);
+            ctx.arc(eyeX2, eyeY2, 3, 0, Math.PI * 2);
             ctx.fill();
-        } else {
+            
+            // Tom's pupils
+            ctx.fillStyle = '#000000';
             ctx.beginPath();
-            ctx.fillStyle = index % 2 === 0 ? '#2ecc71' : '#27ae60';
-            ctx.strokeStyle = '#219f54';
+            ctx.arc(eyeX1, eyeY1, 1.5, 0, Math.PI * 2);
+            ctx.arc(eyeX2, eyeY2, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Tom's nose
+            ctx.beginPath();
+            ctx.fillStyle = '#FFC0CB'; // Pink nose
+            ctx.arc(segment.x + gridSize/2, segment.y + gridSize*0.6, 2, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Tom's whiskers
+            ctx.beginPath();
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 1;
+            // Left whiskers
+            ctx.moveTo(segment.x + gridSize/3, segment.y + gridSize*0.6);
+            ctx.lineTo(segment.x, segment.y + gridSize*0.5);
+            ctx.moveTo(segment.x + gridSize/3, segment.y + gridSize*0.6);
+            ctx.lineTo(segment.x, segment.y + gridSize*0.7);
+            // Right whiskers
+            ctx.moveTo(segment.x + gridSize*2/3, segment.y + gridSize*0.6);
+            ctx.lineTo(segment.x + gridSize, segment.y + gridSize*0.5);
+            ctx.moveTo(segment.x + gridSize*2/3, segment.y + gridSize*0.6);
+            ctx.lineTo(segment.x + gridSize, segment.y + gridSize*0.7);
+            ctx.stroke();
+            
+        } else {
+            // Tom's body segments
+            ctx.beginPath();
+            ctx.fillStyle = index % 2 === 0 ? '#A9A9A9' : '#808080'; // Alternating gray shades
+            ctx.strokeStyle = '#696969';
             ctx.lineWidth = 2;
             ctx.arc(segment.x + gridSize/2, segment.y + gridSize/2, gridSize/2 - 2, 0, Math.PI * 2);
             ctx.fill();
             ctx.stroke();
+            
+            // Add stripes to Tom's body
+            if (index % 2 === 0) {
+                ctx.beginPath();
+                ctx.strokeStyle = '#696969';
+                ctx.lineWidth = 1;
+                ctx.moveTo(segment.x + gridSize*0.3, segment.y + gridSize*0.3);
+                ctx.lineTo(segment.x + gridSize*0.7, segment.y + gridSize*0.7);
+                ctx.stroke();
+            }
         }
     });
 }
 
 function drawFood() {
-    // Rat body
+    // Jerry's body (brown mouse)
     ctx.beginPath();
-    ctx.fillStyle = '#888888';  // Gray color for rat
-    ctx.strokeStyle = '#555555';
+    ctx.fillStyle = '#B87333'; // Brown color for Jerry
+    ctx.strokeStyle = '#8B4513';
     ctx.lineWidth = 2;
     ctx.arc(food.x + gridSize/2, food.y + gridSize/2, gridSize/2 - 1, 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();
 
-    // Rat ears
+    // Jerry's ears
     ctx.beginPath();
-    ctx.fillStyle = '#AAAAAA';
+    ctx.fillStyle = '#D2B48C'; // Lighter brown for ears
     ctx.arc(food.x + gridSize/3, food.y + gridSize/3, gridSize/4, 0, Math.PI * 2);
     ctx.arc(food.x + gridSize*2/3, food.y + gridSize/3, gridSize/4, 0, Math.PI * 2);
     ctx.fill();
+    
+    // Jerry's inner ears
+    ctx.beginPath();
+    ctx.fillStyle = '#FFC0CB'; // Pink inner ears
+    ctx.arc(food.x + gridSize/3, food.y + gridSize/3, gridSize/8, 0, Math.PI * 2);
+    ctx.arc(food.x + gridSize*2/3, food.y + gridSize/3, gridSize/8, 0, Math.PI * 2);
+    ctx.fill();
 
-    // Rat eyes
+    // Jerry's eyes
     ctx.beginPath();
     ctx.fillStyle = '#000000';
     ctx.arc(food.x + gridSize/3, food.y + gridSize/2, 2, 0, Math.PI * 2);
     ctx.arc(food.x + gridSize*2/3, food.y + gridSize/2, 2, 0, Math.PI * 2);
     ctx.fill();
 
-    // Rat nose
+    // Jerry's nose
     ctx.beginPath();
     ctx.fillStyle = '#FF9999';
     ctx.arc(food.x + gridSize/2, food.y + gridSize*2/3, 2, 0, Math.PI * 2);
     ctx.fill();
 
-    // Rat tail
+    // Jerry's tail
     ctx.beginPath();
-    ctx.strokeStyle = '#888888';
+    ctx.strokeStyle = '#B87333';
     ctx.lineWidth = 2;
     ctx.moveTo(food.x + gridSize/2, food.y + gridSize);
     ctx.quadraticCurveTo(
@@ -155,7 +223,7 @@ function drawFood() {
     );
     ctx.stroke();
 
-    // Rat whiskers
+    // Jerry's whiskers
     ctx.beginPath();
     ctx.strokeStyle = '#FFFFFF';
     ctx.lineWidth = 1;
@@ -259,15 +327,46 @@ function gameOver() {
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawGrid();
-    moveSnake();
     
-    if (checkCollision()) {
-        gameOver();
-        return;
+    // Only update snake position if not paused
+    if (!isPaused) {
+        moveSnake();
+        
+        if (checkCollision()) {
+            gameOver();
+            return;
+        }
     }
     
+    // Always draw food and snake (even when paused)
     drawFood();
     drawSnake();
+    
+    // If paused, show a small indicator
+    if (isPaused) {
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        ctx.font = 'bold 20px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('PAUSED', canvas.width / 2, 30);
+    }
+}
+
+// Remove the drawPauseScreen function since we don't need it anymore
+
+// Modify togglePause function
+function togglePause() {
+    isPaused = !isPaused;
+    
+    // Update pause button text to show current state
+    if (pauseBtn) {
+        pauseBtn.innerHTML = isPaused ? '▶️ Resume' : '⏸️ Pause';
+    }
+    
+    // Make sure the game loop is running if we're unpausing
+    if (!isPaused && !gameLoop) {
+        const gameSpeed = window.innerWidth <= 768 ? 150 : 100;
+        gameLoop = setInterval(update, gameSpeed);
+    }
 }
 
 let lastKeyTime = 0;
@@ -278,19 +377,27 @@ document.addEventListener('keydown', (event) => {
     if (currentTime - lastKeyTime < keyDelay) return;
     lastKeyTime = currentTime;
 
-    switch (event.key) {
-        case 'ArrowUp':
-            if (direction !== 'down') direction = 'up';
-            break;
-        case 'ArrowDown':
-            if (direction !== 'up') direction = 'down';
-            break;
-        case 'ArrowLeft':
-            if (direction !== 'right') direction = 'left';
-            break;
-        case 'ArrowRight':
-            if (direction !== 'left') direction = 'right';
-            break;
+    // Don't process movement keys if game is paused
+    if (!isPaused) {
+        switch (event.key) {
+            case 'ArrowUp':
+                if (direction !== 'down') direction = 'up';
+                break;
+            case 'ArrowDown':
+                if (direction !== 'up') direction = 'down';
+                break;
+            case 'ArrowLeft':
+                if (direction !== 'right') direction = 'left';
+                break;
+            case 'ArrowRight':
+                if (direction !== 'left') direction = 'right';
+                break;
+        }
+    }
+    
+    // Process pause keys regardless of game state
+    if (event.key === 'p' || event.key === 'P' || event.key === ' ') {
+        togglePause();
     }
 });
 
@@ -310,6 +417,25 @@ function addTouchControls() {
     rightBtn.addEventListener('click', () => {
         if (direction !== 'left') direction = 'right';
     });
+    
+    // Add pause button if it doesn't exist
+    if (!document.querySelector('.pause-btn')) {
+        pauseBtn.className = 'pause-btn';
+        pauseBtn.innerHTML = '⏸️ Pause';
+        
+        // Find the control container and add the pause button
+        const restartButtonParent = restartButton.parentElement;
+        
+        // Insert pause button after restart button
+        if (restartButton.nextSibling) {
+            restartButtonParent.insertBefore(pauseBtn, restartButton.nextSibling);
+        } else {
+            restartButtonParent.appendChild(pauseBtn);
+        }
+    }
+    
+    // Add pause button event listener
+    pauseBtn.addEventListener('click', togglePause);
 }
 
 function startNewGame() {
@@ -334,6 +460,9 @@ function startNewGame() {
     score = 0;
     scoreElement.textContent = score;
     clearInterval(gameLoop);
+    
+    // Reset pause state when starting new game
+    isPaused = false;
     
     // Set different game speeds based on device size
     const gameSpeed = window.innerWidth <= 768 ? 150 : 100; // Slower on mobile

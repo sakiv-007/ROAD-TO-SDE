@@ -63,6 +63,33 @@ canvas {
     transform: translateY(0);
 }
 
+/* Pause button styling */
+.pause-btn {
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.pause-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.pause-btn:active {
+    transform: translateY(0);
+}
+
 .leaderboard {
     position: fixed;
     top: 26%;
@@ -236,4 +263,3 @@ canvas {
         align-items: center;
         gap: 20px;
     }
-}
