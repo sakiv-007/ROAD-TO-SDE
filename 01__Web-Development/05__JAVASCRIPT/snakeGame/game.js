@@ -115,24 +115,60 @@ function drawSnake() {
 }
 
 function drawFood() {
+    // Rat body
     ctx.beginPath();
-    ctx.fillStyle = '#e74c3c';
-    ctx.strokeStyle = '#c0392b';
+    ctx.fillStyle = '#888888';  // Gray color for rat
+    ctx.strokeStyle = '#555555';
     ctx.lineWidth = 2;
     ctx.arc(food.x + gridSize/2, food.y + gridSize/2, gridSize/2 - 1, 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();
 
+    // Rat ears
     ctx.beginPath();
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-    ctx.arc(food.x + gridSize * 0.3, food.y + gridSize * 0.3, gridSize/4, 0, Math.PI * 2);
+    ctx.fillStyle = '#AAAAAA';
+    ctx.arc(food.x + gridSize/3, food.y + gridSize/3, gridSize/4, 0, Math.PI * 2);
+    ctx.arc(food.x + gridSize*2/3, food.y + gridSize/3, gridSize/4, 0, Math.PI * 2);
     ctx.fill();
 
+    // Rat eyes
     ctx.beginPath();
-    ctx.strokeStyle = '#27ae60';
+    ctx.fillStyle = '#000000';
+    ctx.arc(food.x + gridSize/3, food.y + gridSize/2, 2, 0, Math.PI * 2);
+    ctx.arc(food.x + gridSize*2/3, food.y + gridSize/2, 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Rat nose
+    ctx.beginPath();
+    ctx.fillStyle = '#FF9999';
+    ctx.arc(food.x + gridSize/2, food.y + gridSize*2/3, 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Rat tail
+    ctx.beginPath();
+    ctx.strokeStyle = '#888888';
     ctx.lineWidth = 2;
-    ctx.moveTo(food.x + gridSize/2, food.y + gridSize/4);
-    ctx.lineTo(food.x + gridSize/2 + 3, food.y);
+    ctx.moveTo(food.x + gridSize/2, food.y + gridSize);
+    ctx.quadraticCurveTo(
+        food.x + gridSize, food.y + gridSize, 
+        food.x + gridSize, food.y + gridSize/2
+    );
+    ctx.stroke();
+
+    // Rat whiskers
+    ctx.beginPath();
+    ctx.strokeStyle = '#FFFFFF';
+    ctx.lineWidth = 1;
+    // Left whiskers
+    ctx.moveTo(food.x + gridSize/3, food.y + gridSize*2/3);
+    ctx.lineTo(food.x, food.y + gridSize/2);
+    ctx.moveTo(food.x + gridSize/3, food.y + gridSize*2/3);
+    ctx.lineTo(food.x, food.y + gridSize*3/4);
+    // Right whiskers
+    ctx.moveTo(food.x + gridSize*2/3, food.y + gridSize*2/3);
+    ctx.lineTo(food.x + gridSize, food.y + gridSize/2);
+    ctx.moveTo(food.x + gridSize*2/3, food.y + gridSize*2/3);
+    ctx.lineTo(food.x + gridSize, food.y + gridSize*3/4);
     ctx.stroke();
 }
 
