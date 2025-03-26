@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --primary-color: #0f0;
+    --secondary-color: #00ff9d;
+    --bg-color: #000;
+    --terminal-bg: rgba(16, 16, 16, 0.9);
+    --terminal-border: #0f0;
+    --error-color: #ff0033;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(0,30,0,0.4) 0%, rgba(0,0,0,0.95) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.terminal {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    height: 500px;
+    background-color: var(--terminal-bg);
+    border: 1px solid var(--terminal-border);
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), 
+                inset 0 0 10px rgba(0, 255, 0, 0.2);
+    padding: 30px;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 255, 0, 0.1);
+    opacity: 0.75;
+    animation: scanline 6s linear infinite;
+    z-index: 3;
+}
+
+@keyframes scanline {
+    0% {
+        top: 0%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+.cursor-follower {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,0,0.1) 0%, rgba(0,255,0,0) 70%);
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: screen;
+    transform: translate(-50%, -50%);
+}
+
+.login-container {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.glitch {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
+                -0.05em -0.025em 0 rgba(0,255,0,0.75),
+                0.025em 0.05em 0 rgba(0,0,255,0.75);
+    animation: glitch 2s infinite;
+    margin-bottom: 30px;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
+                    -0.05em -0.025em 0 rgba(0,255,0,0.75),
+                    0.025em 0.05em 0 rgba(0,0,255,0.75);
+    }
+    14% {
+        text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
+                    -0.05em -0.025em 0 rgba(0,255,0,0.75),
+                    0.025em 0.05em 0 rgba(0,0,255,0.75);
+    }
+    15% {
+        text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75),
+                    0.025em 0.025em 0 rgba(0,255,0,0.75),
+                    -0.05em -0.05em 0 rgba(0,0,255,0.75);
+    }
+    49% {
+        text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75),
+                    0.025em 0.025em 0 rgba(0,255,0,0.75),
+                    -0.05em -0.05em 0 rgba(0,0,255,0.75);
+    }
+    50% {
+        text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75),
+                    0.05em 0 0 rgba(0,255,0,0.75),
+                    0 -0.05em 0 rgba(0,0,255,0.75);
+    }
+    99% {
+        text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75),
+                    0.05em 0 0 rgba(0,255,0,0.75),
+                    0 -0.05em 0 rgba(0,0,255,0.75);
+    }
+    100% {
+        text-shadow: -0.025em 0 0 rgba(255,0,0,0.75),
+                    -0.025em -0.025em 0 rgba(0,255,0,0.75),
+                    -0.025em -0.05em 0 rgba(0,0,255,0.75);
+    }
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(31px, 9999px, 94px, 0);
+    }
+    5% {
+        clip: rect(70px, 9999px, 71px, 0);
+    }
+    10% {
+        clip: rect(29px, 9999px, 83px, 0);
+    }
+    15% {
+        clip: rect(16px, 9999px, 91px, 0);
+    }
+    20% {
+        clip: rect(2px, 9999px, 23px, 0);
+    }
+    25% {
+        clip: rect(60px, 9999px, 73px, 0);
+    }
+    30% {
+        clip: rect(14px, 9999px, 56px, 0);
+    }
+    35% {
+        clip: rect(89px, 9999px, 99px, 0);
+    }
+    40% {
+        clip: rect(18px, 9999px, 19px, 0);
+    }
+    45% {
+        clip: rect(37px, 9999px, 7px, 0);
+    }
+    50% {
+        clip: rect(64px, 9999px, 89px, 0);
+    }
+    55% {
+        clip: rect(5px, 9999px, 65px, 0);
+    }
+    60% {
+        clip: rect(89px, 9999px, 33px, 0);
+    }
+    65% {
+        clip: rect(84px, 9999px, 92px, 0);
+    }
+    70% {
+        clip: rect(99px, 9999px, 100px, 0);
+    }
+    75% {
+        clip: rect(91px, 9999px, 87px, 0);
+    }
+    80% {
+        clip: rect(79px, 9999px, 70px, 0);
+    }
+    85% {
+        clip: rect(46px, 9999px, 11px, 0);
+    }
+    90% {
+        clip: rect(46px, 9999px, 41px, 0);
+    }
+    95% {
+        clip: rect(24px, 9999px, 22px, 0);
+    }
+    100% {
+        clip: rect(45px, 9999px, 46px, 0);
+    }
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(65px, 9999px, 99px, 0);
+    }
+    5% {
+        clip: rect(69px, 9999px, 66px, 0);
+    }
+    10% {
+        clip: rect(0px, 9999px, 87px, 0);
+    }
+    15% {
+        clip: rect(82px, 9999px, 91px, 0);
+    }
+    20% {
+        clip: rect(28px, 9999px, 22px, 0);
+    }
+    25% {
+        clip: rect(19px, 9999px, 55px, 0);
+    }
+    30% {
+        clip: rect(70px, 9999px, 46px, 0);
+    }
+    35% {
+        clip: rect(20px, 9999px, 78px, 0);
+    }
+    40% {
+        clip: rect(45px, 9999px, 56px, 0);
+    }
+    45% {
+        clip: rect(57px, 9999px, 98px, 0);
+    }
+    50% {
+        clip: rect(73px, 9999px, 57px, 0);
+    }
+    55% {
+        clip: rect(71px, 9999px, 22px, 0);
+    }
+    60% {
+        clip: rect(84px, 9999px, 33px, 0);
+    }
+    65% {
+        clip: rect(92px, 9999px, 6px, 0);
+    }
+    70% {
+        clip: rect(94px, 9999px, 48px, 0);
+    }
+    75% {
+        clip: rect(42px, 9999px, 84px, 0);
+    }
+    80% {
+        clip: rect(27px, 9999px, 23px, 0);
+    }
+    85% {
+        clip: rect(21px, 9999px, 69px, 0);
+    }
+    90% {
+        clip: rect(80px, 9999px, 19px, 0);
+    }
+    95% {
+        clip: rect(66px, 9999px, 68px, 0);
+    }
+    100% {
+        clip: rect(40px, 9999px, 53px, 0);
+    }
+}
+
+.terminal-text {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    height: 60px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    border-color: var(--secondary-color);
+}
+
+.access-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.access-btn:hover {
+    background-color: rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.access-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.4), transparent);
+    transition: all 0.6s;
+}
+
+.access-btn:hover:before {
+    left: 100%;
+}
+
+.status-container {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.status-bar {
+    width: 100%;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--primary-color);
+    margin-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.status-progress {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary-color);
+    transition: width 0.5s ease;
+}
+
+.status-text {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    text-align: right;
+}
+
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Adding hover pattern effects */
+.pattern-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.pattern-element {
+    position: absolute;
+    opacity: 0;
+    background-color: rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.binary-text {
+    position: absolute;
+    color: rgba(0, 255, 0, 0.4);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.matrix-rain {
+    position: absolute;
+    color: var(--primary-color);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s, transform 2s;
+    pointer-events: none;
+}
+
+.circuit-line {
+    position: absolute;
+    background-color: rgba(0, 255, 0, 0.3);
+    transform-origin: left center;
+    height: 1px;
+    opacity: 0;
+    transition: width 0.5s ease, opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.hex-pattern {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    opacity: 0;
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+
+
+    

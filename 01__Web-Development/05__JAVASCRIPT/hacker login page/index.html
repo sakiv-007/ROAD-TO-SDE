@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Access Terminal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Popup styling */
+        .hack-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ff0000;
+            font-family: 'Share Tech Mono', monospace;
+            padding: 20px;
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+            z-index: 9999;
+            text-align: center;
+            font-size: 24px;
+            animation: glitch 0.3s infinite;
+        }
+        
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 #00ff00, -2px 0 #0000ff; }
+            25% { text-shadow: -2px 0 #00ff00, 2px 0 #0000ff; }
+            50% { text-shadow: 2px 2px #00ff00, -2px -2px #0000ff; }
+            75% { text-shadow: -2px -2px #00ff00, 2px 2px #0000ff; }
+            100% { text-shadow: 2px 0 #00ff00, -2px 0 #0000ff; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="overlay"></div>
+    <div class="terminal">
+        <div class="scanline"></div>
+        <div class="cursor-follower"></div>
+        <div class="particles-container"></div>
+        
+        <div class="login-container">
+            <h1 class="glitch" data-text="SECURE ACCESS">SECURE ACCESS</h1>
+            <div class="terminal-text" id="terminal-output"></div>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">USERNAME:</label>
+                    <input type="text" id="username" autocomplete="off">
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">PASSWORD:</label>
+                    <input type="password" id="password">
+                </div>
+                
+                <button type="submit" class="access-btn">AUTHENTICATE</button>
+            </form>
+            
+            <div class="status-container">
+                <div class="status-bar">
+                    <div class="status-progress"></div>
+                </div>
+                <div class="status-text">SYSTEM READY</div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="hover-effects.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
