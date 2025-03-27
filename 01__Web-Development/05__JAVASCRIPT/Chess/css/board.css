@@ -1,0 +1,116 @@
+/* CSS for the chessboard */
+.board-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 3px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.square {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.light {
+    background-color: var(--light-square);
+}
+
+.dark {
+    background-color: var(--dark-square);
+}
+
+.square.selected {
+    background-color: var(--highlight-color);
+}
+
+.square.valid-move.light {
+    background-color: var(--light-square-highlight);
+}
+
+.square.valid-move.dark {
+    background-color: var(--dark-square-highlight);
+}
+
+.square.last-move {
+    position: relative;
+}
+
+.square.last-move::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 0, 0.3);
+    pointer-events: none;
+}
+
+.board-labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.file-labels {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.rank-labels {
+    position: absolute;
+    left: -25px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.file-labels span, .rank-labels span {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.move-indicator {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+.capture-indicator {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border: 3px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+}

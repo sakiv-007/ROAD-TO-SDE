@@ -1,0 +1,202 @@
+/* Main CSS file for overall styling */
+:root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #0f3460;
+    --highlight-color: #e94560;
+    --light-square: #f0d9b5;
+    --dark-square: #b58863;
+    --light-square-highlight: #f7ec9c;
+    --dark-square-highlight: #d08b47;
+    --text-color: #ffffff;
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--highlight-color);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    width: 25%;
+}
+
+.player-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.game-status {
+    text-align: center;
+    width: 50%;
+}
+
+.timer-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 15px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--highlight-color);
+}
+
+.move-history {
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.move-history h3 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#moves-list {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.promotion-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.piece-option {
+    width: 60px;
+    height: 60px;
+    background-color: var(--light-square);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.piece-option:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .player-info {
+        width: 100%;
+    }
+}
