@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Search Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Word Search</h1>
+            <div class="game-controls">
+                <div class="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="time">00:00</span>
+                </div>
+                <div class="score-container">
+                    <i class="fas fa-star"></i>
+                    <span id="score">0</span>
+                </div>
+                <div class="difficulty-selector">
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <button id="new-game-btn" class="btn">New Game</button>
+                <button id="hint-btn" class="btn"><i class="fas fa-lightbulb"></i> Hint</button>
+                <a href="../index.html" class="btn home-btn"><i class="fas fa-home"></i> Home</a>
+            </div>
+        </header>
+
+        <div class="game-content">
+            <div class="word-grid-container">
+                <div id="word-grid" class="word-grid"></div>
+            </div>
+
+            <div class="word-list-container">
+                <h2>Find These Words:</h2>
+                <ul id="word-list" class="word-list"></ul>
+            </div>
+        </div>
+
+        <div id="game-message" class="game-message">
+            <div class="message-content">
+                <h2 id="message-title">Congratulations!</h2>
+                <p id="message-text">You found all the words!</p>
+                <div class="message-stats">
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span id="final-time">00:00</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span id="final-score">0</span>
+                    </div>
+                </div>
+                <button id="play-again-btn" class="btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
