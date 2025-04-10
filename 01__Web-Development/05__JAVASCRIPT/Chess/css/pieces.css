@@ -1,0 +1,115 @@
+/* CSS for chess pieces */
+.piece {
+    width: 80%;
+    height: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    z-index: 10;
+    transition: transform 0.2s;
+}
+
+/* Update the background-image paths to ensure they're correct */
+.piece.white-pawn {
+    background-image: url('../assets/images/pieces/white-pawn.svg');
+}
+
+.piece.white-rook {
+    background-image: url('../assets/images/pieces/white-rook.svg');
+}
+
+.piece.white-knight {
+    background-image: url('../assets/images/pieces/white-knight.svg');
+}
+
+.piece.white-bishop {
+    background-image: url('../assets/images/pieces/white-bishop.svg');
+}
+
+.piece.white-queen {
+    background-image: url('../assets/images/pieces/white-queen.svg');
+}
+
+.piece.white-king {
+    background-image: url('../assets/images/pieces/white-king.svg');
+}
+
+.piece.black-pawn {
+    background-image: url('../assets/images/pieces/black-pawn.svg');
+}
+
+.piece.black-rook {
+    background-image: url('../assets/images/pieces/black-rook.svg');
+}
+
+.piece.black-knight {
+    background-image: url('../assets/images/pieces/black-knight.svg');
+}
+
+.piece.black-bishop {
+    background-image: url('../assets/images/pieces/black-bishop.svg');
+}
+
+.piece.black-queen {
+    background-image: url('../assets/images/pieces/black-queen.svg');
+}
+
+.piece.black-king {
+    background-image: url('../assets/images/pieces/black-king.svg');
+}
+
+.piece.dragging {
+    position: absolute;
+    pointer-events: none;
+    z-index: 100;
+    transform: scale(1.2);
+}
+
+.captured-pieces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    min-height: 30px;
+}
+
+.captured-piece {
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Promotion piece options */
+.piece-option[data-piece="queen"].white {
+    background-image: url('../assets/images/pieces/white-queen.svg');
+}
+
+.piece-option[data-piece="rook"].white {
+    background-image: url('../assets/images/pieces/white-rook.svg');
+}
+
+.piece-option[data-piece="bishop"].white {
+    background-image: url('../assets/images/pieces/white-bishop.svg');
+}
+
+.piece-option[data-piece="knight"].white {
+    background-image: url('../assets/images/pieces/white-knight.svg');
+}
+
+.piece-option[data-piece="queen"].black {
+    background-image: url('../assets/images/pieces/black-queen.svg');
+}
+
+.piece-option[data-piece="rook"].black {
+    background-image: url('../assets/images/pieces/black-rook.svg');
+}
+
+.piece-option[data-piece="bishop"].black {
+    background-image: url('../assets/images/pieces/black-bishop.svg');
+}
+
+.piece-option[data-piece="knight"].black {
+    background-image: url('../assets/images/pieces/black-knight.svg');
+}

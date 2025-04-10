@@ -1,0 +1,71 @@
+/* CSS for UI elements */
+.captured-pieces {
+    margin-top: 5px;
+    padding: 5px;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    min-height: 40px;
+}
+
+#status-message {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+#moves-list {
+    font-size: 0.9rem;
+}
+
+#moves-list .move-number {
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+
+#moves-list .white-move, #moves-list .black-move {
+    padding: 2px 5px;
+}
+
+#moves-list .current-move {
+    background-color: var(--highlight-color);
+    border-radius: 3px;
+}
+
+/* Game over modal styling */
+#game-result {
+    color: var(--highlight-color);
+    margin-bottom: 15px;
+}
+
+#game-result-message {
+    margin-bottom: 20px;
+}
+
+#new-game-modal-btn {
+    background-color: var(--highlight-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .board-container {
+        max-width: 90vw;
+    }
+    
+    .file-labels, .rank-labels {
+        display: none;
+    }
+    
+    .game-info {
+        flex-direction: column;
+    }
+    
+    .player-info {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .timer-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
