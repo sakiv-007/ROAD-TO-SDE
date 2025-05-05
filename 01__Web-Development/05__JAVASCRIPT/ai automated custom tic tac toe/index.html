@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="assets/Screenshot 2025-03-22 205929.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Custom Tic Tac Toe</h1>
+        <div class="settings">
+            <div class="input-group">
+                <label for="gridSize">Grid Size (3-15):</label>
+                <div class="number-input-container">
+                    <input type="number" id="gridSize" min="3" max="15" value="3">
+                    <div class="number-controls">
+                        <div class="number-control-btn decrease">-</div>
+                        <div class="number-control-btn increase">+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="matchLength">Match Length (3-15):</label>
+                <div class="number-input-container">
+                    <input type="number" id="matchLength" min="3" max="15" value="3">
+                    <div class="number-controls">
+                        <div class="number-control-btn decrease">−</div>
+                        <div class="number-control-btn increase">+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-group">
+                <button id="playAI">Play against AI</button>
+                <button id="startGame">Play with Friends</button>
+            </div>
+        </div>
+    </div>
+    <div class="game-container hidden">
+        <div id="gameBoard"></div>
+        <div id="scores">
+            <div>Player X: <span id="scoreX">0</span></div>
+            <div>Player O: <span id="scoreO">0</span></div>
+        </div>
+        <div id="status"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
