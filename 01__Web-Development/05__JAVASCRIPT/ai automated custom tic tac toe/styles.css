@@ -1,0 +1,746 @@
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #e2e8f0;
+}
+
+.container {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 32px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 0 40px rgba(79, 70, 229, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
+    z-index: -1;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 24px;
+    font-weight: 600;
+    color: #f8fafc;
+    text-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+    letter-spacing: 1px;
+}
+
+.settings {
+    margin-bottom: 24px;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.input-group {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.number-input-container {
+    display: flex;
+    align-items: center;
+}
+
+input[type="number"] {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.8);
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    color: #f8fafc;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    -moz-appearance: textfield;
+}
+
+/* Custom styling for number input buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.number-controls {
+    display: flex;
+    margin-left: 10px;
+}
+
+.number-control-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(99, 102, 241, 0.2);
+    color: #f8fafc;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    margin-left: 5px;
+}
+
+.number-control-btn:hover {
+    background: rgba(99, 102, 241, 0.4);
+    transform: translateY(-2px);
+}
+
+.number-control-btn:active {
+    transform: translateY(0);
+}
+
+.input-group::after,
+.input-group::before {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(99, 102, 241, 0.2);
+    color: #f8fafc;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+/* .input-group::after {
+    content: '+';
+    top: 35px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.input-group::before {
+    content: '−';
+    top: 60px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+} */
+
+.input-group::after:hover,
+.input-group::before:hover {
+    background: rgba(99, 102, 241, 0.4);
+}
+
+/* Add JavaScript to handle custom increment/decrement */
+input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(30deg);
+    transition: all 0.6s;
+}
+
+button:hover::after {
+    transform: rotate(30deg) translateX(100%);
+}
+
+#gameBoard {
+    display: grid;
+    gap: 8px;
+    margin: 24px auto;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 32px); /* Account for padding */
+    justify-content: center; /* Center grid items horizontally */
+}
+
+.cell {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: min(1.8rem, 4vw); /* Responsive font size */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    color: #f8fafc;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 20px;
+    min-height: 20px;
+}
+
+/* Add specific styles for X and O */
+.cell.x::before, 
+.cell.x::after {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 3px;
+    background: #6366f1;
+    border-radius: 2px;
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+}
+
+.cell.x::before {
+    transform: rotate(45deg);
+}
+
+.cell.x::after {
+    transform: rotate(-45deg);
+}
+
+.cell.o::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    border: 3px solid #ef4444;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 95%;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 16px;
+    }
+    
+    .settings {
+        padding: 15px;
+    }
+    
+    #gameBoard {
+        padding: 10px;
+        gap: 4px;
+        margin: 16px auto;
+    }
+    
+    .cell {
+        font-size: 1rem;
+        border-radius: 4px;
+        background: rgba(40, 53, 75, 0.8); /* Lighter background for better visibility */
+        border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly more visible border */
+    }
+    
+    #scores {
+        flex-direction: row;
+        padding: 10px;
+        margin: 16px 0;
+    }
+    
+    #scores div {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    
+    #status {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        width: 98%;
+        max-width: none;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 12px; /* Reduce margin to give more space to game board */
+    }
+    
+    .settings {
+        padding: 12px 10px;
+        margin-bottom: 12px; /* Reduce margin */
+    }
+    
+    #gameBoard {
+        padding: 5px;
+        gap: 2px;
+        width: calc(100% - 10px); /* Account for padding */
+        max-width: 100%;
+        margin: 10px auto;
+        justify-content: center; /* Ensure grid is centered */
+    }
+    
+    /* For very large grids on small screens */
+    .large-grid #gameBoard {
+        transform: scale(0.95); /* Less scaling down */
+        transform-origin: center;
+        margin: 0 auto;
+    }
+    
+    /* Adjust cell size for large grids */
+    .large-grid .cell {
+        min-width: 18px; /* Slightly larger minimum size */
+        min-height: 18px;
+    }
+    
+    #scores {
+        margin: 12px 0; /* Reduce margin */
+        padding: 10px;
+    }
+    
+    #status {
+        margin-top: 12px; /* Reduce margin */
+        padding: 10px;
+    }
+}
+
+/* Additional media query for very small screens */
+@media (max-width: 360px) {
+    .container {
+        padding: 8px 5px;
+    }
+    
+    .settings {
+        padding: 10px 8px;
+    }
+    
+    #gameBoard {
+        padding: 3px;
+        gap: 1px;
+        width: calc(100% - 6px); /* Account for padding */
+        justify-content: center;
+    }
+    
+    .cell {
+        border-radius: 3px;
+        background: rgba(60, 75, 100, 0.9); /* Brightest background for very small screens */
+        border: 1px solid rgba(255, 255, 255, 0.25); /* Most visible border */
+    }
+    
+    .cell.x::before, 
+    .cell.x::after {
+        height: 2px;
+    }
+    
+    .cell.o::before {
+        border-width: 2px;
+    }
+}
+.cell:hover {
+    background: rgba(51, 65, 85, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cell:active {
+    transform: translateY(0);
+}
+
+#scores {
+    display: flex;
+    justify-content: space-around;
+    margin: 24px 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#scores div {
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+#scores div:first-child {
+    background: rgba(99, 102, 241, 0.1);
+    border-left: 3px solid #6366f1;
+}
+
+#scores div:last-child {
+    background: rgba(239, 68, 68, 0.1);
+    border-left: 3px solid #ef4444;
+}
+
+#status {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 8px;
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+#status::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #6366f1, #4f46e5);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+.cell:has(X) {
+    color: #6366f1;
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+.cell:has(O) {
+    color: #ef4444;
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+.hidden {
+    display: none;
+}
+
+.game-container {
+    position: fixed;
+    top: 0;
+    left: -10px; /* Move the game area 10px to the left */
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: #0f172a;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#gameBoard {
+    max-height: 90vh;
+    overflow: auto;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.cell {
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.hidden {
+    display: none;
+}
+
+.game-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: #0f172a;
+    z-index: 100;
+}
+
+.game-container #gameBoard {
+    max-width: 100%;
+    max-height: calc(100vh - 200px); /* Reduced height to leave more space for stats */
+    margin: 0 auto;
+    margin-bottom: 120px; /* Add bottom margin to create space for stats */
+}
+
+.game-container #scores {
+    position: fixed;
+    bottom: 5px; /* Changed from 10px to 5px to move it further down */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 500px;
+    margin-bottom: -15px; /* Ensure no bottom margin is pushing it up */
+}
+
+.game-container #status {
+    position: fixed;
+    bottom: 90px; /* Increased from 80px to move further down */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 500px;
+}
+
+/* Match line styles */
+.match-line {
+    position: absolute;
+    height: 4px;
+    background: linear-gradient(to right, transparent, currentColor 20%, currentColor 80%, transparent);
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 100; /* Increased z-index to ensure visibility */
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    transform-origin: center;
+}
+
+.x-line {
+    color: #6366f1; /* Same blue color as X symbol */
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
+}
+
+.o-line {
+    color: #ef4444; /* Same red color as O symbol */
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.8; }
+}
+
+/* Make sure the game board has position relative for absolute positioning of lines */
+#gameBoard {
+    position: relative;
+    overflow: hidden;
+    overflow: visible; /* Allow match lines to be visible */
+}
+
+.play-again-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    transition: all 0.3s;
+    margin-top: 20px;
+    z-index: 200;
+}
+
+.play-again-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.4);
+}
+
+.play-again-btn:active {
+    transform: translateY(0);
+}
+
+/* Add this new class to hide the status display when game is over */
+.game-over #status {
+    display: none;
+}
+
+/* Make sure the game popup has proper z-index */
+.game-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-radius: 12px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: popupFadeIn 0.3s ease-out;
+}
+
+@keyframes popupFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.popup-content h2 {
+    color: #f8fafc;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.popup-content p {
+    color: #cbd5e1;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.popup-scores {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.popup-score {
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.x-score {
+    background: rgba(99, 102, 241, 0.1);
+    border-left: 3px solid #6366f1;
+    color: #6366f1;
+}
+
+.o-score {
+    background: rgba(239, 68, 68, 0.1);
+    border-left: 3px solid #ef4444;
+    color: #ef4444;
+}
+
+.popup-content .play-again-btn {
+    margin-top: 20px;
+    width: 80%;
+}
+
+/* Add these styles to your existing CSS */
+.last-move {
+    animation: pulse 0.5s ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.6);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+}
+
+/* Ensure the animation works with existing cell styles */
+.cell {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Replace the mobile-specific last move highlight with this new approach */
+@media (max-width: 768px) {
+    .last-move {
+        border-width: 3px;
+        animation: borderPulse 1.5s infinite;
+    }
+    
+    .last-move.x {
+        border-color: rgba(99, 102, 241, 0.8); /* Blue border for X */
+    }
+    
+    .last-move.o {
+        border-color: rgba(239, 68, 68, 0.8); /* Red border for O */
+    }
+    
+    @keyframes borderPulse {
+        0% { border-color: rgba(99, 102, 241, 0.8); }
+        50% { border-color: rgba(99, 102, 241, 0.4); }
+        100% { border-color: rgba(99, 102, 241, 0.8); }
+    }
+    
+    .last-move.o {
+        animation-name: borderPulseO;
+    }
+    
+    @keyframes borderPulseO {
+        0% { border-color: rgba(239, 68, 68, 0.8); }
+        50% { border-color: rgba(239, 68, 68, 0.4); }
+        100% { border-color: rgba(239, 68, 68, 0.8); }
+    }
+}
