@@ -69,3 +69,18 @@ else:
 '''
 
 
+# Float
+price = 100.25
+gpa = 3.2
+
+print(f"this shirt is worth ${price}")
+print(f"my gpa is {gpa}")
+
+
+# boolean
+
+is_student = True
+
+print("Are you are a student? : {is_student}")   #if f is not used then it prints the whole print line as it is
+print(f"Are you are a student? : {is_student}")
+
