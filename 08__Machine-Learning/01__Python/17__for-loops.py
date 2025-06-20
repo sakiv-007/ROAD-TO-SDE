@@ -16,3 +16,7 @@ for x in range(1,20):
         break
     else:
         print(x)
+
+
+for y in range(3):
+    print(y)
