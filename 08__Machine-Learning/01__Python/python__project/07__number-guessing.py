@@ -1,7 +1,7 @@
 import random
 
 lowest_num = 1
-highest_num = 5
+highest_num = 100
 
 answer = random.randint(lowest_num, highest_num)
 guesses = 0
@@ -28,7 +28,7 @@ while is_running:
             print("Too high! Try again!")
         else:
             print(f"CORRECT! The asnwer was {answer}")
-            print(f"number of guesses: ")
+            print(f"number of guesses: {guesses}")
             is_running = False
 
     else:
