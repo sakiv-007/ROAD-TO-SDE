@@ -8,11 +8,11 @@
 #         1. inheritance = An object could be treated of the same type as a parent class
 #         2. "Duck typing" = Object must have becessary attributes/methods
 
-from abc import ABC, abstractmethod
+# from abc import ABC, abstractmethod
 
 class Shape:
 
-    @abstractmethod
+    # @abstractmethod
     def area(self):
         pass
 
