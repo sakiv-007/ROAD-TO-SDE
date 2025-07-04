@@ -31,7 +31,23 @@ class Rectangle:
         else:
             print("Height must be greater than zero")
 
+    @width.deleter
+    def width(self):
+        del self._width
+        print("Width has been deleted")
+
+    @height.deleter
+    def height(self):
+        del self._height
+        print("Height has been deleted")
+
 rectangle = Rectangle(3,4)
 
-print(rectangle.width)
-print(rectangle.height)
+rectangle.width = 5
+rectangle.height = 7
+
+del rectangle.width
+del rectangle.height
+
+# print(rectangle.width)
+# print(rectangle.height)
