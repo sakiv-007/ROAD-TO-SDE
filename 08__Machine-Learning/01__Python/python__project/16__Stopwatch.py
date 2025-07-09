@@ -9,6 +9,9 @@ class Stopwatch(QWidget):
         super().__init__()
 
 
+        
+
+
         self.time = QTime(0, 0, 0, 0)
         self.time_label = QLabel("00:00:00.00", self)
         self.start_button = QPushButton("Start", self)
@@ -77,6 +80,11 @@ class Stopwatch(QWidget):
     def update_display(self):
         self.time = self.time.addMSecs(10)
         self.time_label.setText(self.format_time(self.time)) 
+
+
+
+
+
     
 if __name__ == "__main__":
     app = QApplication(sys.argv)
