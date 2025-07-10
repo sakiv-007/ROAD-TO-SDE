@@ -139,31 +139,38 @@ class WeatherApp(QWidget):
         self.description_label.setText(weather_description)
 
 
+    
     @staticmethod
     def get_weather_emoji(weather_id):
-        # if weather_id >= 200 and weather_id <= 232:
         if 200 <= weather_id <= 232:
-            return "⛈️"
+            return "⛈️"  # Thunderstorm
         elif 300 <= weather_id <= 321:
-            return "🌦️"
+            return "🌦️"  # Drizzle
         elif 500 <= weather_id <= 531:
-            return "🌧️"
+            return "🌧️"  # Rain
         elif 600 <= weather_id <= 622:
-            return "❄️"
+            return "❄️"  # Snow
         elif 701 <= weather_id <= 741:
-            return "💨"
+            return "🌫️"  # Mist, smoke, haze, etc.
         elif weather_id == 762:
-            return "🌋"
+            return "🌋"  # Volcanic ash
         elif weather_id == 771:
-            return "💨"
+            return "💨"  # Squalls
         elif weather_id == 781:
-            return "🌪️"
+            return "🌪️"  # Tornado
         elif weather_id == 800:
-            return "☀️"
-        elif 801 <= weather_id <= 804:
-            return "☁️"
+            return "☀️"  # Clear
+        elif weather_id == 801:
+            return "🌤️"  # Few clouds — mostly sunny
+        elif weather_id == 802:
+            return "⛅"   # Scattered clouds — partly cloudy
+        elif weather_id == 803:
+            return "🌥️"  # Broken clouds — mostly cloudy
+        elif weather_id == 804:
+            return "☁️"  # Overcast clouds
         else:
-            return ""
+            return "❓"
+
         
         
         
