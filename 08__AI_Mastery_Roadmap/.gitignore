@@ -1,0 +1,18 @@
+# Ignore virtual environment folder
+ai-env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code settings
+.vscode/
+
+# OS specific
+.DS_Store
+Thumbs.db
