@@ -1,3 +1,7 @@
-student1 = Student("vikas", 8.5)
-# student2 = Student("sonta", 7.5)
-# student3 = Student("chirag", 8.0)
+import math
+
+
+# radius = float(input("Enter the radius of a circle: "))
+
+# circumference = 2 * math.pi * radius
+# print(f"The radius of circle is: {round(circumference, 2)}cm")
