@@ -9,8 +9,8 @@ capitals = {"USA": "WAshington DC",
 # print(dir(capitals))
 # print(help(capitals))
 
-# print(capitals.get("USA"))
-# print(capitals)
+print(capitals.get("USA"))
+print(capitals)
 
 
 # to check if a particular key exist in the list or not

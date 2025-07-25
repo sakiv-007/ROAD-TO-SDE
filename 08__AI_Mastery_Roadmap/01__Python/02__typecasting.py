@@ -21,7 +21,7 @@ age = str(age)
 print(type(age))
 
 age += "1"
-print(age)
+print(age)   # TypeError
 
 name = bool(name) #if name stirng is left empty only then it's false ence it;'s helpful for checkingi if the user entered the name or not so if it'sfalse we can prompt to enter the name
 

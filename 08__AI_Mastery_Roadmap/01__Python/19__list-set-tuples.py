@@ -21,13 +21,13 @@ fruits = ["apple", "banana", "orange", "coconut"]
 
 # fruits[0] = "pineapple"
 
-fruits.append("pineapple")
-fruits.remove("apple")
-fruits.insert(0, "litchi")
-fruits.sort()
-fruits.reverse()
-fruits.clear()
-fruits.index("apple")
+# fruits.append("pineapple")
+# fruits.remove("apple")
+# fruits.insert(0, "litchi")
+# fruits.sort()which 
+# fruits.reverse()
+# fruits.clear()
+# fruits.index("apple")
 
 
 
