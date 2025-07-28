@@ -1,8 +1,5 @@
-arr1 = np.array([1,2,3])
-# arr2 = np.array([[1,2],[3,4],[3,4]])
+arr2 = np.expand_dims(arr, axis=0)
+# print(arr2.shape)  # (1, 3)
 
-# print(arr1)
-# print(arr2)
-
-# print(arr2.shape)
-# print(arr2.dtype)
+# arr3 = np.expand_dims(arr, axis=1)
+# print(arr3.shape)  # (3, 1)

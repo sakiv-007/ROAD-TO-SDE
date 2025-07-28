@@ -51,6 +51,8 @@ print(arr[indexes])  # Output: [20 40 50]
 
 
 
+'''
+
 # Step 1: Create a 4×4 matrix with numbers from 1 to 16
 matrix = np.arange(1, 17).reshape(4, 4)
 print("Original 4x4 Matrix:\n", matrix)
@@ -68,3 +70,32 @@ print("\nElements Greater Than 10:", matrix[matrix > 10])
 # Middle block = rows 1-2 (index 1,2) and columns 1-2 (index 1,2)
 middle_block = matrix[1:3, 1:3]
 print("\nMiddle 2x2 Submatrix:\n", middle_block)
+
+
+'''
+
+
+# arr = np.array([1, 2, 3])
+# print(arr.shape)  # (3,)
+
+# arr2 = np.expand_dims(arr, axis=0)
+# print(arr2.shape)  # (1, 3)
+
+# arr3 = np.expand_dims(arr, axis=1)
+# print(arr3.shape)  # (3, 1)
+
+
+# a = np.array([[1, 2], [3, 4]])
+# b = np.array([[5, 6], [7, 8]])
+
+# print(a * b)
+
+# print(np.dot(a, b))
+
+# print(a@b)
+
+
+a = np.array([[1, 2, 3], [4, 5, 6]])
+b = np.array([1, 5, 1])
+
+print(a + b)
