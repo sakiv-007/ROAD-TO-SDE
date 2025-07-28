@@ -95,7 +95,34 @@ print("\nMiddle 2x2 Submatrix:\n", middle_block)
 # print(a@b)
 
 
-a = np.array([[1, 2, 3], [4, 5, 6]])
-b = np.array([1, 5, 1])
+# a = np.array([[1, 2, 3], [4, 5, 6]])
+# b = np.array([1, 5, 1])
 
-print(a + b)
+# print(a + b)
+
+
+# a = np.array([[1, 2], [3, 4]])
+# b = np.array([[5, 6]])
+
+# # Join along axis 0 (rows)
+# result = np.concatenate((a, b), axis=0)
+
+# print(result)
+
+
+# a = np.array([1, 2, 3])
+# b = np.array([4, 5, 6])
+
+# stacked = np.stack((a, b), axis=1)
+# print(stacked)
+# # Output:
+# # [[1 2 3]
+# #  [4 5 6]]
+
+# print(stacked.shape)  # (2, 3)
+
+
+a = np.array([1.2345, 2.6789])
+
+print(np.round(a, 2))      # [1.23 2.68]
+print(np.clip(a, 1.5, 2.5)) # [1.5 2.5]
